@@ -2,6 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-	msg = request.GET['msg']
-	return HttpResponse('you typed: "' + msg + '".')
+	params = {
+		'title'	:'Hello/Index',
+		'msg'	:'これは、サンプルで作ったページです。',
+		'goto'	:'next3'
+	}
+	return render(request, 'hello/index.html', params)
+
+def next(request):
+	params = {
+		'title'	:'Hello/Next',
+		'msg'	:'これは、もう1つのページです。',
+		'goto'	:'index3'
+	}
+	return render(request, 'hello/index.html', params)
+
 
