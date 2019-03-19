@@ -5,7 +5,7 @@ def index(request):
 	params = {
 		'title'	:'Hello/Index',
 		'msg'	:'これは、サンプルで作ったページです。',
-		'goto'	:'next'
+		'goto'	:'next3'
 	}
 	return render(request, 'hello/index.html', params)
 
@@ -13,7 +13,7 @@ def next(request):
 	params = {
 		'title'	:'Hello/Next',
 		'msg'	:'これは、もう1つのページです。',
-		'goto'	:'index'
+		'goto'	:'index3'
 	}
 	return render(request, 'hello/index.html', params)
 
