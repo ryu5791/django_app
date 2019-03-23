@@ -3,19 +3,21 @@
 <html lang="ja">
 <head>
 	<meta charst="utf-8">
-	<title>{{title}}</title>
+	<title>{{title20}}</title>
 	<link rel="stylesheet" type="text/css"
 		href="{% static 'hello/css/style.css' %}" />
 </head>
 <body>
-	<h1>{{title}}</h1>
-	<p>{{msg10}}</p>
-	<form action="{% url 'form1' %}" method="post" >
+	<h1>{{title20}}</h1>
+	<p>{{message20|safe}}</p>
+    <table>
+	<form action="{% url 'index3' %}" method="post" >
 		{% csrf_token %}
-		<label for="msg4">message: </label>
-		<input id="msg4" type="text" name="msg5">
+		{{form20.as_table}}
+        <tr><td></td><td><input type="submit" value="click"></td></tr>
 		<input type="submit" value="click">
 	</form>
+    </table>
 </body>
 </html>
 
