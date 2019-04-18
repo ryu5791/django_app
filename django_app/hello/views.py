@@ -1,17 +1,57 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Friend
+from .models import Friend, TblScore, TblMember
 import logging
 import json
 from django.views.generic import TemplateView
-from .forms import HelloForm
+#from .forms import HelloForm
+import time
 
 class HelloView(TemplateView):
 
 	def __init__(self):
-#		temp = open('Score2019_1.json',encoding="utf-8_sig")
-#		tbl_score = json.load(temp)
-#		logging.debug(num)
+
+		# 時間計測 開始
+		startTime = time.time()
+		logging.debug("HelloView/__init__ start time:" + str(startTime))
+
+		i=0
+		logging.debug("start")
+		
+		# スコア → データベース
+		temp = open('Score2019_1.json',encoding="utf-8_sig")
+		json_score = json.load(temp)
+
+#		for scr in json_score["results"]:
+#			tblScore, created = TblScore.objects.get_or_create(date=scr["date"].replace('/', '-') \
+#															,  gameNo=scr["gameNo"] \
+#															,  playerID=int(scr["ID"]))
+#			tblScore.date = scr["date"].replace('/', '-')
+#			tblScore.gameNo		= int(scr["gameNo"])
+#			tblScore.gamePt     = int(scr["gamePt"])
+#			tblScore.playerID   = int(scr["ID"])
+#			tblScore.pairID     = int(scr["pairID"])
+#			tblScore.row        = int(scr["row"])
+#			tblScore.serve1st   = bool(scr["serve1st"])
+#			tblScore.serve2nd   = bool(scr["serve2nd"])
+#			tblScore.serveTurn  = int(scr["serveTurn"]-1)
+#			i += 1
+#			tblScore.save()
+#		logging.debug(i)
+
+
+		temp = open('member.json',encoding="utf-8_sig")
+		json_member = json.load(temp)
+
+#		# メンバー → データベース登録
+#		for mem in json_member["results"]:
+#			tblMember, created = TblMember.objects.get_or_create(playerID=int(mem["ID"]))
+#			tblMember.playerID		= int(mem["ID"])
+#			tblMember.name          = mem["name"]
+#			tblMember.dispName      = mem["dispName"]
+#			tblMember.inputName1    = mem["nickname1"]
+#			tblMember.inputName2    = mem["dispName"]
+#			tblMember.save()
 
 		data5 = Friend.objects.all()
 		self.params = {
@@ -20,6 +60,12 @@ class HelloView(TemplateView):
 			'data20':		data5,
 			
 		}
+
+		# 時間計測 終了
+		endTime = time.time()
+		logging.debug("HelloView/__init__ end time:" + str(endTime))
+		logging.debug("HelloView/__init__ process time:" + str(endTime-startTime))
+
 
 	def get(self, request):
 		return render(request, 'hello/index.html', self.params)

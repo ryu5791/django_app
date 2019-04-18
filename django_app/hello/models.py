@@ -13,7 +13,24 @@ class Friend(models.Model):
 		return '<Friend:id=' + str(self.id) + '< ' + \
 			self.name + '(' + str(self.age) + ')>'
 
+class TblScore(models.Model):
+	date		= models.DateField(null=True)
+	gameNo		= models.PositiveIntegerField(null=True)
+	gamePt		= models.PositiveIntegerField(default=0, null=True, blank=True)
+	playerID	= models.PositiveIntegerField(default=0, null=True)
+	pairID		= models.PositiveIntegerField(default=0, null=True)
+	row			= models.PositiveIntegerField(default=0, null=True)
+	serve1st	= models.BooleanField(default=False, null=True)
+	serve2nd	= models.BooleanField(default=False, null=True)
+	serveTurn	= models.PositiveIntegerField(default=0, null=True)
+	updateDate	= models.DateTimeField( default='2019-05-01 20:29:39', null=True)
 
+class TblMember(models.Model):
+	playerID	= models.PositiveIntegerField()
+	name		= models.CharField(default="", blank=True, max_length=20)
+	dispName	= models.CharField(default="", blank=True, max_length=20)
+	inputName1	= models.CharField(default="", blank=True, max_length=20)
+	inputName2	= models.CharField(default="", blank=True, max_length=20)
 
 
 
