@@ -6,6 +6,7 @@ import json
 from django.views.generic import TemplateView
 #from .forms import HelloForm
 import time
+from .views_makeTbl import *
 
 class HelloView(TemplateView):
 
@@ -16,12 +17,11 @@ class HelloView(TemplateView):
 		logging.debug("HelloView/__init__ start time:" + str(startTime))
 
 		i=0
-		logging.debug("start")
 		
-		# スコア → データベース
-		temp = open('Score2019_1.json',encoding="utf-8_sig")
-		json_score = json.load(temp)
-
+#		# スコア → データベース
+#		temp = open('Score2019_1.json',encoding="utf-8_sig")
+#		json_score = json.load(temp)
+#
 #		for scr in json_score["results"]:
 #			tblScore, created = TblScore.objects.get_or_create(date=scr["date"].replace('/', '-') \
 #															,  gameNo=scr["gameNo"] \
@@ -40,9 +40,9 @@ class HelloView(TemplateView):
 #		logging.debug(i)
 
 
-		temp = open('member.json',encoding="utf-8_sig")
-		json_member = json.load(temp)
-
+#		temp = open('member.json',encoding="utf-8_sig")
+#		json_member = json.load(temp)
+#
 #		# メンバー → データベース登録
 #		for mem in json_member["results"]:
 #			tblMember, created = TblMember.objects.get_or_create(playerID=int(mem["ID"]))
@@ -53,7 +53,8 @@ class HelloView(TemplateView):
 #			tblMember.inputName2    = mem["dispName"]
 #			tblMember.save()
 
-		data5 = Friend.objects.all()
+#		data5 = Friend.objects.all()
+		data5 = TblMember.objects.all()
 		self.params = {
 			'title20'		:'Hello',
 			'message20'		:'your data:',
@@ -68,6 +69,8 @@ class HelloView(TemplateView):
 
 
 	def get(self, request):
+		startTime = time.time()
+		logging.debug("HelloView/get start time:" + str(startTime))
 		return render(request, 'hello/index.html', self.params)
 
 '''	def post(self, request):

@@ -14,13 +14,22 @@
         <tr>
             <th>ID</th>
             <th>NAME</th>
+            <th>playerID</th>
+<!--
+            <th>ID</th>
+            <th>NAME</th>
             <th>GENDER</th>
             <th>MAIL</th>
             <th>AGE</th>
             <th>BIRTHDAY</th>
+-->
         </tr>
     {% for item5 in data20 %}
         <tr>
+            <td>{{item5.id}}</td>
+            <td>{{item5.name}}</td>
+            <td>{{item5.playerID}}</td>
+<!--
             <td>{{item5.id}}</td>
             <td>{{item5.name}}</td>
             <td>{% if item5.gender == False %}male{% endif %}
@@ -28,6 +37,7 @@
             <td>{{item5.mail}}</td>
             <td>{{item5.age}}</td>
             <td>{{item5.birthday}}</td>
+-->
         </tr>
     {% endfor %}
     </table>
