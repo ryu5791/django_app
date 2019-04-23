@@ -10,6 +10,8 @@ from .forms import GroupCheckForm,GroupSelectForm,\
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+import logging
+
 # indexのビュー関数
 @login_required(login_url='/admin/login/')
 def index(request):
@@ -18,6 +20,8 @@ def index(request):
 
     # POST送信時の処理
     if request.method == 'POST':
+
+        logging.debug("index:POST")
 
         # Groupsのチェックを更新した時の処理
         if request.POST['mode'] == '__check_form__':
@@ -48,6 +52,7 @@ def index(request):
 
     # GETアクセス時の処理
     else:
+        logging.debug("index:GET")
         # フォームの用意
         searchform = SearchForm()
         checkform = GroupCheckForm(request.user)
