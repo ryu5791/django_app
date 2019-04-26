@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Friend, TblScore, TblMember
+from .models import Friend, TblScore, TblMember, TblRank
 import logging
 import json
 from django.views.generic import TemplateView
 #from .forms import HelloForm
 import time
-from .views_makeTbl import *
+from .views_makeTbl.makeRankTbl import *
 
 class HelloView(TemplateView):
 
@@ -54,7 +54,9 @@ class HelloView(TemplateView):
 #			tblMember.save()
 
 #		data5 = Friend.objects.all()
-		data5 = TblMember.objects.all()
+#		data5 = TblMember.objects.all()
+		data5 = TblRank.objects.all()
+		data5 = get_tblRank("2019-01-01", "2019-06-30")
 		self.params = {
 			'title20'		:'Hello',
 			'message20'		:'your data:',

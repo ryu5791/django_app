@@ -32,7 +32,7 @@ class TblMember(models.Model):
 	inputName1	= models.CharField(default="", blank=True, max_length=20)
 	inputName2	= models.CharField(default="", blank=True, max_length=20)
 
-class Tblrank(models.Model):
+class TblRank(models.Model):
 	gameNum		= models.PositiveIntegerField()
 	gamePt      = models.FloatField()
 	gross       = models.FloatField()
