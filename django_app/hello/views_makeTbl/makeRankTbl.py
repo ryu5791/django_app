@@ -16,37 +16,36 @@ def get_tblRank(start_date, end_date):
 	unq_playerId = tScore.values("playerID").order_by("playerID").distinct()
 #	logging.debug(unq_playerId[0]["playerID"])
 
-	i=0
+	TblRank.objects.all().delete()
 
 	for player in unq_playerId:
-		tRank[i] = TblRank()
+		tRank = TblRank()
 		# データ初期化
 		gameNum = 0
 		gamePt = 0
 		winNum = 0
 		for scr in tScore:
-			if player["playerID"] == scr["playerID"]:
+			if player["playerID"] == scr.playerID:
 				gameNum += 1
-				gamePt += scr["gamePt"]
-				if scr["gamePt"] == 5:
+				gamePt += scr.gamePt
+				if scr.gamePt == 5:
 					winNum += 1
 		# 結果を格納
-		tRank[i].gameNum	 = gameNum
-		tRank[i].gamePt      = gamePt
-		tRank[i].gross       = gamePt/gameNum
-		tRank[i].HDCP        = 0
-		tRank[i].playerID    = player["playerID"]
-		tRank[i].name        = get_nameFromId(tRank[i].playerID)
-		tRank[i].net         = tRank[i].gross + tRank[i].HDCP
-		tRank[i].winNum      = winNum
-		i += 1
+		tRank.gameNum	 = gameNum
+		tRank.gamePt      = gamePt
+		tRank.gross       = gamePt/gameNum
+		tRank.HDCP        = 0
+		tRank.playerID    = player['playerID']
+		tRank.name        = get_nameFromId(tRank.playerID, tMember)
+		tRank.net         = tRank.gross + tRank.HDCP
+		tRank.winNum      = winNum
+		tRank.save()
 
-	return tRank
 
-def get_nameFromId(playerID):
-	for member in TblMember:
-		if playerID == member["playerID"]:
-			ret = member.name["name"]
+def get_nameFromId(playerID, tMember):
+	for mem in tMember:
+		if playerID == mem.playerID:
+			ret = mem.name
 	if ret == None:
 		logging.debug("◆◆get_nameFromId()  NG")
 

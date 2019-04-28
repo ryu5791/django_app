@@ -16,7 +16,6 @@ class HelloView(TemplateView):
 		startTime = time.time()
 		logging.debug("HelloView/__init__ start time:" + str(startTime))
 
-		i=0
 		
 #		# スコア → データベース
 #		temp = open('Score2019_1.json',encoding="utf-8_sig")
@@ -55,8 +54,9 @@ class HelloView(TemplateView):
 
 #		data5 = Friend.objects.all()
 #		data5 = TblMember.objects.all()
+#		data5 = TblRank.objects.all()
+		get_tblRank("2019-01-01", "2019-06-30")
 		data5 = TblRank.objects.all()
-		data5 = get_tblRank("2019-01-01", "2019-06-30")
 		self.params = {
 			'title20'		:'Hello',
 			'message20'		:'your data:',
@@ -75,7 +75,7 @@ class HelloView(TemplateView):
 		logging.debug("HelloView/get start time:" + str(startTime))
 		return render(request, 'hello/index.html', self.params)
 
-'''	def post(self, request):
+"""	def post(self, request):
 		msg = 'あなたは、<b>' + request.POST['name1'] + \
 			'(' + request.POST['age1'] + \
 			')</b>さんです。<br>メールアドレスは<b>' + request.POST['mail1'] + \
@@ -83,8 +83,8 @@ class HelloView(TemplateView):
 		self.params['message20'] = msg
 		self.params['form20'] = HelloForm(request.POST)
 		return render(request, 'hello/index.html', self.params)
-'''
-'''
+"""
+"""
 def index1(request):
 
 
@@ -104,4 +104,4 @@ def index1(request):
 			'data20':		data5,
 		}
 	return render(request, 'hello/index.html', params)
-'''
+"""
