@@ -11,6 +11,11 @@
 	<h1>{{title20}}</h1>
 	<p>{{message20|safe}}</p>
     <table>
+    	<form action="{% url 'index3' %}" method="post">
+    		{% csrf_token %}
+    		{{ form.as_p }}
+    		<tr><td></td><td><input type="submit" value="click"></td></tr>
+    	</form>
         <tr>
             <th>ID</th>
             <th>NAME</th>

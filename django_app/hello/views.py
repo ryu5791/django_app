@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Friend, TblScore, TblMember, TblRank
+from django.contrib.auth.models import User
 import logging
 import json
 from django.views.generic import TemplateView
-#from .forms import HelloForm
+from .forms import PullDown1, PullDown2
 import time
 from .views_makeTbl.makeRankTbl import *
+from django.contrib.auth.decorators import login_required
 
+#@login_required(login_url='/admin/login/')
 class HelloView(TemplateView):
 
 	def __init__(self):
@@ -55,13 +58,13 @@ class HelloView(TemplateView):
 #		data5 = Friend.objects.all()
 #		data5 = TblMember.objects.all()
 #		data5 = TblRank.objects.all()
-		get_tblRank("2019-01-01", "2019-06-30")
+		ManageRank.get("2019-01-01", "2019-06-30")
 		data5 = TblRank.objects.all()
 		self.params = {
 			'title20'		:'Hello',
 			'message20'		:'your data:',
-			'data20':		data5,
-			
+			'data20'		:data5,
+			'form'			:PullDown1()
 		}
 
 		# 時間計測 終了
@@ -73,7 +76,20 @@ class HelloView(TemplateView):
 	def get(self, request):
 		startTime = time.time()
 		logging.debug("HelloView/get start time:" + str(startTime))
+		
+		self.clipUserData = request.user
+		
+		logging.debug("user.username:" + str(request.user.username))
+		logging.debug("user.is_superuser:" + str(request.user.is_superuser))
+		
+		if( request.user.is_superuser == True ):
+			self.params['form'] = PullDown2()
+		
+		
 		return render(request, 'hello/index.html', self.params)
+
+	def chk_superuser():
+		return clipUserData.is_superuser
 
 """	def post(self, request):
 		msg = 'あなたは、<b>' + request.POST['name1'] + \
