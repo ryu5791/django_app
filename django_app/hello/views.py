@@ -67,7 +67,7 @@ class HelloView(TemplateView):
 		data5 = TblRank.objects.all()
 		self.params = {
 			'title20'		:'Hello',
-			'message20'		:'your data:',
+			'message20'		:'your dat:',
 			'data20'		:data5,
 			'form'			:PullDown1()
 		}
