@@ -34,13 +34,15 @@ class TblMember(models.Model):
 
 class TblRank(models.Model):
 	gameNum		= models.PositiveIntegerField()
-	gamePt      = models.FloatField()
-	gross       = models.FloatField()
-	HDCP        = models.FloatField()
-	playerID    = models.PositiveIntegerField()
-	name        = models.CharField(default="", max_length=20)
-	net         = models.FloatField()
-	winNum      = models.PositiveIntegerField()
+	gamePt		= models.FloatField()
+	gross		= models.FloatField()
+	HDCP		= models.FloatField()
+	playerID	= models.PositiveIntegerField()
+	name		= models.CharField(default="", max_length=20)
+	net			= models.FloatField()
+	winNum		= models.PositiveIntegerField()
 
-
+class TblDaily(models.Model):
+	date		= models.DateField(null=True)
+	totalGame	= models.PositiveIntegerField()
 

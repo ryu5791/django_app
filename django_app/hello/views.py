@@ -58,7 +58,12 @@ class HelloView(TemplateView):
 #		data5 = Friend.objects.all()
 #		data5 = TblMember.objects.all()
 #		data5 = TblRank.objects.all()
-		ManageRank.get("2019-01-01", "2019-06-30")
+
+#		ManageRank.get("2019-01-01", "2019-06-30")
+
+		ManageDaily.get("2019-01-01", "2019-06-30")
+		
+
 		data5 = TblRank.objects.all()
 		self.params = {
 			'title20'		:'Hello',

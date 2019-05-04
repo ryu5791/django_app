@@ -1,5 +1,6 @@
-from ..models import TblScore, TblMember, TblRank
+from ..models import TblScore, TblMember, TblRank, TblDaily
 import logging
+import time
 
 """
 2019-04-25 08:14:04,143 DEBUG <QuerySet [{'playerID': 6}, {'playerID': 10}, {'playerID': 13}, {'playerID': 17}, {'playerID': 18}, {'playerID': 22}, {'playerID': 29}, {'playerID': 32}, {'playerID': 34}, {'playerID': 39}, {'playerID': 40}, {'playerID': 49}, {'playerID': 50}, {'playerID': 53}, {'playerID': 55}, {'playerID': 66}, {'playerID': 72}, {'playerID': 73}, {'playerID': 76}, {'playerID': 77}, '...(remaining elements truncated)...']>
@@ -50,5 +51,23 @@ def get_nameFromId(playerID, tMember):
 		logging.debug("◆◆get_nameFromId()  NG")
 
 	return ret
+
+
+class ManageDaily():
+	@classmethod
+	def get(cls, start_date, end_date):
+		tScore = TblScore.objects.filter(date__range=(start_date, end_date))
+		tScore = tScore.order_by("date")
+		
+		TblDaily.objects.all().delete()
+		
+		unq_date = tScore.values("date").order_by("date").distinct()
+
+		for i_date in unq_date:
+			tDaily = TblDaily()
+			
+			tDaily.date = i_date["date"]
+			tDaily.totalGame = (TblScore.objects.filter(date=i_date["date"]).count()/4)
+			tDaily.save()
 
 
