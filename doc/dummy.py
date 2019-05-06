@@ -16,6 +16,19 @@ Returns
 
 """
 
+#--------------------------------------------------
+class DispScr(TemplateView):
+	currentTblID
+	currentTbl
+	
+	def __init__(self):
+		self.currentTblID = テーブルIDの最大値
+		
+
+	def get(self, request):
+		
+		
+
 
 
 
