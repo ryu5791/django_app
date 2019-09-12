@@ -1,0 +1,117 @@
+.sample_01{
+width: 100%;
+border-collapse: collapse;
+}
+.sample_01 th{
+width: 1em;
+padding: 6px;
+text-align: left;
+vertical-align: top;
+color: #333;
+background-color: #dee;
+border: 1px solid black;
+}
+.sample_01 td{
+height: 1em;
+padding: 6px;
+background-color: #fff;
+border: 1px solid black;
+}
+
+.btn-flat-border {
+  display: block;
+/*  padding: 0.3em 1em;
+  text-decoration: none; */
+  color: black;
+  background: white;
+  border: none;
+  margin: 0px;
+/*  box-shadow: 0px 0px;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s; */
+}
+
+.btn-flat-border:hover {
+  background: #67c5ff;
+  color: white;
+}
+
+.btn-flat-border:hover {
+  background: black;
+  color: white;
+}
+
+
+button {
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+	display: block;
+}
+
+
+.update-button {
+
+    background: -moz-linear-gradient(top,#80CCE6,#80CCE6 5%,#09C 5%,#069 95%,#069 95%,#00293D);
+	background: -webkit-gradient(linear, left top, left bottom, from(#80CCE6), color-stop(0.05,#80CCE6), color-stop(0.05,#09C), color-stop(0.95,#069), color-stop(0.95,#00293D), to(#00293D));
+	border: 1px solid #DDD;
+	color: #FFF;
+	width: 100px;
+/*	padding: 10px 0; */
+}
+
+.prvDt-button {
+
+    background: -moz-linear-gradient(top,#80CCE6,#80CCE6 5%,#09C 5%,#069 95%,#069 95%,#00293D);
+    background: -webkit-gradient(linear, left top, left bottom, from(#80CCE6), color-stop(0.05,#80CCE6), color-stop(0.05,#09C), color-stop(0.95,#069), color-stop(0.95,#00293D), to(#00293D));
+    border: 1px solid #DDD;
+    color: #FFF;
+	width: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+/*	padding: 10px 0; */
+}
+
+.addGuest-button {
+
+    background: -moz-linear-gradient(top,#80CCE6,#80CCE6 5%,#09C 5%,#069 95%,#069 95%,#00293D);
+    background: -webkit-gradient(linear, left top, left bottom, from(#80CCE6), color-stop(0.05,#80CCE6), color-stop(0.05,#09C), color-stop(0.95,#069), color-stop(0.95,#00293D), to(#00293D));
+    border: 1px solid #DDD;
+    color: #FFF;
+    width: 100px;
+    position: absolute;
+    bottom: 35px;
+    right: 0;
+/*	padding: 10px 0; */
+}
+
+
+
+.csvCreate-button {
+
+    background: -moz-linear-gradient(top,#80CCE6,#80CCE6 5%,#09C 5%,#069 95%,#069 95%,#00293D);
+    background: -webkit-gradient(linear, left top, left bottom, from(#80CCE6), color-stop(0.05,#80CCE6), color-stop(0.05,#09C), color-stop(0.95,#069), color-stop(0.95,#00293D), to(#00293D));
+	border: 1px solid #DDD;
+	color: #FFF;
+	width: 100px;
+    position: absolute;
+    bottom: 0;
+/*	padding: 10px 0; */
+}
+
+.clear-button {
+
+    background: -moz-linear-gradient(top,#80CCE6,#80CCE6 5%,#09C 5%,#069 95%,#069 95%,#00293D);
+    background: -webkit-gradient(linear, left top, left bottom, from(#80CCE6), color-stop(0.05,#80CCE6), color-stop(0.05,#09C), color-stop(0.95,#069), color-stop(0.95,#00293D), to(#00293D));
+    border: 1px solid #DDD;
+	color: #FFF;
+	width: 150px;
+    position: absolute;
+    bottom: 0;
+/*	padding: 10px 0; */
+}
+
+

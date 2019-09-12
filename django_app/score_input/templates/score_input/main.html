@@ -1,0 +1,128 @@
+{% extends 'score_input/base.html' %}
+
+{% block content %}
+<form action="{% url 'index2' %}" method="post" >
+	{% csrf_token %}
+	<p> 11 {{message|safe}} </p>
+    <table class="sample_01" id="TBL">
+    <tbody>
+    
+    <tr>
+    <th colspan="3">name</th>
+    <th colspan="2">ID</th>
+    <th style="background-color:#fff;" onclick="click_serve()">serve</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>score</th>
+    </tr>
+    <tr>
+    <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_1st)">1</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td rowspan="3"></td>
+    </tr>
+    <tr>
+    <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_2nd)">3</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td>
+    </tr>
+    <tr>
+    <td colspan="6">ゲーム</td><td><input type="submit" class="btn-flat-border" value="〇"></td><td onclick="Click_ServeResult(this)">{{game_dt11}}</td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td>
+    </tr>
+    <tr>
+    <td colspan="6">ゲーム</td><td onclick="Click_ServeResult(this)">{{game_dt10}}</td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td rowspan="3"></td>
+    </tr>
+    <tr>
+    <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_3rd)">2</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td>
+    </tr>
+    <tr>
+    <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_4th)">4</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td>
+    </tr>
+    </tbody>
+    </table>
+</form>
+
+{% endblock %}
+
+{% block extrajs %}
+	{% csrf_token %}
+
+<script>
+
+
+/***********************************************************
+ ===========================================================
+ * @brief   デバッグ用
+ * @param    
+ * @return    
+ * @note    構造体等を表示
+ ===========================================================
+ **********************************************************/
+function dbg(obj, str) {
+    var properties = '';
+    
+    if(str != undefined)
+    {
+        properties = str + "\n";
+    }
+    
+    for (var prop in obj){
+        properties += prop + "=" + obj[prop] + "\n";
+    }
+    alert(properties);
+}
+
+function click_serve()
+{
+	alert("test");
+}
+
+function Click_GameResult(Obj)
+{
+	Click_ServeResult(Obj);
+}
+
+function Click_ServeResult(Obj)
+{
+	var row = Obj.parentNode.rowIndex;
+	var col = Obj.cellIndex;
+
+	var send_form = document.createElement("form");
+
+alert("OK");
+//	var token = document.getElementsByName('csrf-token').item(0).content;
+//alert("OK2");
+
+	send_form.name = "fsend"; //省略可 
+	send_form.action = "/score_input/";
+//	send_form.method = "POST"; //GETも可能
+	send_form.method = "GET"; //GETも可能
+	send_form.style.visibility = "hidden"; //画面に表示しない 
+	document.body.appendChild(send_form); //画面内に追加
+
+	var fld1 = document.createElement("input");
+	fld1.name = "field1";
+	fld1.type = "text"; //省略可 or hidden
+	fld1.value = row;
+	send_form.appendChild(fld1);
+
+	var fld2 = document.createElement("input");
+	fld2.name = "field2";
+	fld2.type = "text"; //省略可 or hidden
+	fld2.value = col; 
+	send_form.appendChild(fld2);
+
+	
+
+//	send_form.setRequestHeader('X-CSRF-Token', token);
+//alert("OK3");
+
+//var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+	send_form.submit();
+//alert("OK4");
+
+}
+
+</script>
+{% endblock %}

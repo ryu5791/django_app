@@ -65,6 +65,15 @@ class HelloView(TemplateView):
 		
 
 		data5 = TblRank.objects.all()
+		
+		logging.debug("data5:")
+		logging.debug(data5)
+		
+
+		for dt in data5:
+			logging.debug(dt)
+			logging.debug(dt.id)
+		
 		self.params = {
 			'title20'		:'Hello',
 			'message20'		:'your data:',

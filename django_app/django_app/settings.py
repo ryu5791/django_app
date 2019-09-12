@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello',
     'sns',
-    
+    'score_input'
 ]
 
 MIDDLEWARE = [
@@ -140,4 +140,4 @@ else:
         filemode = 'a'
     )
 
-
+CSRF_USE_SESSIONS = True
