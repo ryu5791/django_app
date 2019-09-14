@@ -1,6 +1,29 @@
 from django import forms
 import logging
 
+class MakeGameRslt():
+
+	tblGm=[[""]*2 for i in range(7)]
+
+	def __init__(self, inpTblGm):
+		for (outGm, inGm) in zip(self.tblGm, inpTblGm):
+			if inGm == 1:
+				logging.debug("inGm == 1")
+#				outGm = ["◎", ""]
+				outGm[0] = "◎"
+				outGm[1] = ""
+			elif inGm == 2:
+				logging.debug("inGm == 2")
+#				outGm = ["", "◎"]
+				outGm[0] = ""
+				outGm[1] = "◎"
+			else:
+				logging.debug("inGm == 0")
+#				outGm = ["", ""]
+				outGm[0] = ""
+				outGm[1] = ""
+			logging.debug(self.tblGm)
+
 class HelloForm(forms.Form):
 
 	gameRslt10 = "〇"

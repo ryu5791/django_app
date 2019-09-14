@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Python + Django でCSVのダウンロード／アップロード - Qiita</title><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport"><meta content="#55c500" name="theme-color"><meta content="XWpkTG32-_C4joZoJ_UsmDUi-zaH-hcrjF6ZC_FoFbk" name="google-site-verification"><link href="https://qiita.com/manifest.json" rel="manifest"><link href="https://qiita.com/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml"><meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="qMuz2GND1Al7hZ+adQVDJp7KanUN7kAxdJ1HQXn9oSAUfTr/sjxP+bZc39d0tJUwjGmeRA7TUeGit3bVD4PpJg=="><link rel="shortcut icon" type="image/x-icon" href="https://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico"><link rel="apple-touch-icon" type="image/png" href="https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png"><link rel="stylesheet" media="all" href="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/style-605d2eff1263115c15d0b7278df59979.min.css"><script type="text/javascript" charset="UTF-8" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/lift.json"></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/saved_resource"></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/pixel.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/segmentation.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/segmentation.js.ダウンロード"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/osd.js.ダウンロード"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/amp4ads-host-v0.js.ダウンロード"></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/uwt.js.ダウンロード"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/1469129556533591" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/2040876882868599" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/1733466696949178" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/386990638325508" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/256605841418458" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/262978464137256" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/437265843064161" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/954575148009345" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/996402550503199" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/inferredEvents.js.ダウンロード" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/809797712462041" async=""></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/fbevents.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(6).txt"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(6).txt"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(6).txt"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(6).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/pubads_impl_rendering_2019082901.js.ダウンロード"></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/gtm.js.ダウンロード"></script><script type="text/javascript" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/combo" async=""></script><script async="">window.a1tracker&&a1tracker.ready(function(tracker){var doh="ff9a3577423c8ed5";if(!doh)return;var params={"event":"","url":"","referrer":"","metakeywords":"","callback":""};if(params.url)tracker.setParams(doh,"url",params.url);if(params.referrer)tracker.setParams(doh,"referrer",params.referrer);if(params.metakeywords){var mk=tracker.getParams(doh,"metakeywords");Array.prototype.push.apply(mk,params.metakeywords.split(","));tracker.setParams(doh,"metakeywords",mk)}tracker.setParams(doh,"tagsource","itm_a1common");var callback=params.callback&&typeof window[params.callback]==="function"?function(err,data){if(!err&&data.segments.length>0)window[params.callback](data.segments);return}:function(){};if(params.event)tracker.send(doh,params.event.split(","),callback);else tracker.send(doh,callback)});</script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tracking.min.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/analytics.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(6).txt"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/mixpanel-2-latest.min.js.ダウンロード"></script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/ff9a3577423c8ed5_4330.js.ダウンロード"></script><script type="text/javascript" async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/td.min.js.ダウンロード"></script><script defer="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/polyfill.min.js.ダウンロード"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/bundle-b545e44305c89c80bfd7bada0d5e3075.min.js.ダウンロード" defer="defer"></script><meta content="summary" name="twitter:card"><meta content="@Qiita" name="twitter:site"><meta property="og:type" content="article"><meta property="og:title" content="Python + Django でCSVのダウンロード／アップロード - Qiita"><meta property="og:image" content="https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png"><meta property="og:description" content="
+Python + Django でデータベースのテーブルをCSV形式でダウンロードし、そのCSVを編集してアップロードし、データベースのテーブルを更新します
+
+マスタの一括登録処理を作成するようなケースです。
+
+
+以下の続きです。
+..."><meta content="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5" property="og:url"><meta content="Qiita" property="og:site_name"><meta content="564524038" property="fb:admins"><meta content="Python3,Django2.0" name="keywords"><script defer="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/polyfill.min.js(1).ダウンロード"></script><script>window.frtn=window.frtn||function(){ (frtn.q=frtn.q||[]).push(arguments) };
+frtn("init",{
+service_id:"cova_248",
+site_id:"site_134",
+tag_id:"tag_283"
+});
+frtn("send","pageview");</script><script defer="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/insight.js.ダウンロード" type="text/javascript"></script><script>!function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var r=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},s=["blockEvents","unblockEvents","setSignedMode","setAnonymousMode","resetUUID","addRecord","fetchGlobalID","set","trackEvent","trackPageview","trackClicks","ready"],n=0;n<s.length;n++){var c=s[n];e[t].prototype[c]=r(c)}var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.treasuredata.com/sdk/2.1/td.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)}}("Treasure",this);
+
+// Configure an instance for your database
+var td = new Treasure({
+  host: 'in.treasuredata.com',
+  writeKey: '10614/f5a4453704ad12facc47fe5281fd57526a6119e9',
+  database: 'qiita_public',
+  startInSignedMode: true
+});
+
+// Enable cross-domain tracking
+td.set('$global', 'td_global_id', 'td_global_id');
+// Track pageview information to 'pageviews' table
+td.set('pageviews_all', {"query_parameters":{},"path_parameters":{"controller":"public/items","action":"show","user_id":"t-iguchi","type":"items","id":"d2862e7ef7ec7f1b07e5"}})
+td.trackPageview('pageviews_all');</script><script>td.set('pageviews_anonymous_user', {"query_parameters":{},"path_parameters":{"controller":"public/items","action":"show","user_id":"t-iguchi","type":"items","id":"d2862e7ef7ec7f1b07e5"}})
+td.trackPageview('pageviews_anonymous_user');</script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/js"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-809704461');</script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/js(1)"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-829773019');</script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/js(2)"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    skipStartupTypeset: true,
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$']],
+      processEscapes: true,
+      processEnvironments: false,
+      processRefs: false,
+      skipTags: ['script','noscript','style','textarea','pre','code','a','h1','h2','h3','h4','h5','h6']
+    }
+   })</script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/gpt.js.ダウンロード"></script><link rel="preload" href="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(7).txt" as="script"><script type="text/javascript" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(7).txt"></script><link rel="preload" href="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(8).txt" as="script"><script type="text/javascript" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(8).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/pubads_impl_2019082901.js.ダウンロード" async=""></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(9).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(10).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(11).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(12).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(13).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(14).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(15).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/f(16).txt"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/lift_widget.js.ダウンロード"></script><style type="text/css">#logly-lift-4279493 #logly-lift-widget {
+  
+  width: 100%;
+  
+  
+  
+  clear: both;
+}
+
+#logly-lift-4279493 #logly-lift-widget-label {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  
+  border-bottom-color: #5C97FF;
+  
+}
+
+#logly-lift-4279493 #logly-lift-widget-label-caption {
+  padding: 5px 10px;
+  
+  background-color: #5C97FF;
+  
+  float: left;
+}
+
+#logly-lift-4279493 #logly-lift-widget-label-caption a {
+  
+  color: #FFFFFF;
+  
+  
+  text-decoration: none;
+}
+
+#logly-lift-4279493 .logly-lift-ad {
+  display: inline-block;
+  zoom: 1;
+  vertical-align:top;
+  
+  width: 100%;
+  
+  margin: 5px 0;
+  padding: 0;
+}
+
+
+
+#logly-lift-4279493 .logly-lift-ad-image {
+  
+  vertical-align: top;
+  width: 120px;
+  height: 90px;
+  padding-right: 0;
+}
+
+#logly-lift-4279493 .logly-lift-ad-image-inner {
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+  height: 90px;
+}
+
+#logly-lift-4279493 .logly-lift-ad-image-inner img {
+  position: absolute;
+  max-width: none;
+  max-height: none;
+  border-style:none;
+}
+
+#logly-lift-4279493 .logly-lift-ad-content {
+  
+  word-break: break-all;
+}
+
+
+
+#logly-lift-4279493 .logly-lift-ad-title {
+  
+  
+}
+
+
+
+#logly-lift-4279493 .logly-lift-ad-lead {
+  
+  
+}
+
+
+
+#logly-lift-4279493 a.logly-lift-ad-site {
+  
+  
+}
+
+
+
+
+
+#logly-lift-4279493 .logly-lift-ad-disclosure {
+  
+  
+  
+  text-align: left;
+  
+}
+
+#logly-lift-4279493 .logly-lift-ad-disclosure a {
+  
+  
+  color: #999999;
+  
+}
+
+#logly-lift-4279493 .logly-lift-clear {
+  clear: both;
+}
+
+
+
+#logly-lift-4279493 .ie-lte9 .logly-lift-ad {
+  display: inline;
+}
+
+#logly-lift-toaster .logly-lift-credit,
+#logly-lift-4279493 .logly-lift-credit {
+  clear:both;
+  padding:0 8px 10px;
+  text-align:right;
+}
+
+#logly-lift-toaster .logly-lift-credit {
+  padding-right:0;
+}
+
+#logly-lift-toaster .logly-lift-credit a,
+#logly-lift-4279493 .logly-lift-credit a {
+  color: #999;
+  text-decoration: none;
+  font-size:13px;
+}
+
+#logly-lift-toaster .logly-lift-credit a .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit a .logly-lift-credit-logo {
+  display:inline-block;
+  background: url("//cdn.logly.co.jp/spritesource-s5c12c753d2.png") no-repeat 0 -103px;
+  color:transparent;
+  margin-left:3px;
+  width:36px;
+  height:14px;
+  vertical-align:middle;
+  *display:inline;
+  *zoom:1;
+}
+
+#logly-lift-toaster .logly-lift-credit a:hover .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit a:hover .logly-lift-credit-logo {
+  background: url("//cdn.logly.co.jp/spritesource-s5c12c753d2.png") no-repeat 0 -117px;
+}
+
+#logly-lift-toaster .logly-lift-credit2 a .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit2 a .logly-lift-credit-logo,
+#logly-lift-toaster .logly-lift-credit2 a:hover .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit2 a:hover .logly-lift-credit-logo,
+#logly-lift-modal-contents-inner h3 {
+  background-image: url('https://cdn.logly.co.jp/spritesource-s6c20d2e001.png');
+  background-repeat: no-repeat;
+}
+
+#logly-lift-toaster .logly-lift-credit2 a .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit2 a .logly-lift-credit-logo {
+  background-position: 0 -110px;
+  height: 14px;
+  width: 68px;
+}
+
+#logly-lift-toaster .logly-lift-credit2 a:hover .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit2 a:hover .logly-lift-credit-logo {
+  background-position: 0 -196px;
+  height: 14px;
+  width: 68px;
+}
+#logly-lift-modal-contents-inner h3 {
+  background-position: 0 -232px;
+  height: 40px;
+  width: 194px;
+}
+
+#logly-lift-toaster .logly-lift-credit2 {
+  padding-right: 0;
+}
+#logly-lift-toaster .logly-lift-credit2,
+#logly-lift-4279493 .logly-lift-credit2 {
+  clear: both;
+  padding: 0 8px 10px;
+  text-align: right;
+}
+#logly-lift-toaster .logly-lift-credit2 a,
+#logly-lift-4279493 .logly-lift-credit2 a {
+  color: #999;
+  text-decoration: none;
+  font-size: 11px;
+}
+#logly-lift-toaster .logly-lift-credit2 a .logly-lift-credit-logo,
+#logly-lift-4279493 .logly-lift-credit2 a .logly-lift-credit-logo {
+  display: inline-block;
+  color: transparent;
+  margin-left: 3px;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
+  #logly-lift-toaster .logly-lift-credit2 a .logly-lift-credit-logo,
+  #logly-lift-4279493 .logly-lift-credit2 a .logly-lift-credit-logo {
+    display: inline-block;
+    background-position: 0 -62px;
+    height: 14px;
+    width: 68px;
+    background-size: 106px 136px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
+  #logly-lift-toaster .logly-lift-credit2 a:hover .logly-lift-credit-logo,
+  #logly-lift-4279493 .logly-lift-credit2 a:hover .logly-lift-credit-logo {
+    display: inline-block;
+    background-position: 0 -62px;
+    height: 14px;
+    width: 68px;
+    background-size: 106px 136px;
+  }
+}
+
+#logly-lift-4279493 .logly-lift-widget-video-content {
+  padding: 20px;
+  background: #fff;
+}
+
+#logly-lift-4279493 .logly-lift-video {
+  width: auto;
+  height: auto;
+  margin: 0 -20px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.17);
+}
+
+#logly-lift-4279493 .logly-lift-video-header {
+  padding-bottom: 15px;
+}
+
+#logly-lift-4279493 .logly-lift-video-footer {
+  padding-top: 15px;
+}
+
+#logly-lift-4279493 .logly-lift-video-header .logly-lift-video-headerlink,
+#logly-lift-4279493 .logly-lift-video-footer .logly-lift-video-footerlink {
+  display: block;
+  text-decoration: none;
+}
+
+#logly-lift-4279493 .logly-lift-video-header .logly-lift-video-headerlink::after,
+#logly-lift-4279493 .logly-lift-video-footer .logly-lift-video-footerlink::after {
+  content: "";
+  display: block;
+  clear:both;
+}
+
+#logly-lift-4279493 .logly-lift-video-title {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+#logly-lift-4279493 .logly-lift-video-adv {
+  font-size: 11px;
+  line-height: 1;
+  color: #CCC;
+  text-align: right;
+}
+
+#logly-lift-4279493 .logly-lift-video-cv {
+  display: block;
+  text-align: center;
+  background: #4285f4;
+  color: #FFF;
+  border-radius: 3px;
+}
+
+#logly-lift-4279493 .logly-lift-video-cv:hover {
+  opacity: 0.85;
+}
+
+/* type-1 */
+#logly-lift-4279493 .logly-lift-video-type-1 .logly-lift-video-footer .logly-lift-video-title,
+#logly-lift-4279493 .logly-lift-video-type-1 .logly-lift-video-header .logly-lift-video-adv {
+  display: none;
+}
+
+#logly-lift-4279493 .logly-lift-video-type-1 .logly-lift-video-footer .logly-lift-video-adv {
+  text-align: left;
+}
+
+#logly-lift-4279493 .logly-lift-video-type-1 .logly-lift-video-footer .logly-lift-video-cv {
+  float: right;
+  padding: 3px 20px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+#logly-lift-4279493 .logly-lift-video-type-1 .logly-lift-video-footer .logly-lift-video-cv::before {
+  content: "詳細を見る";
+}
+
+
+  /*
+---
+name: Anonymous
+category: LoglyFeed/Anonymous
+---
+
+
+To reflect this design, you must copy and paste it to https://www.logly.co.jp design settings
+
+
+!![](LoglyFeed/Anonymous.html)
+
+*/
+
+#logly-lift-4279493 #logly-lift-widget-header {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-feature-settings: "palt";
+  position: relative;
+}
+
+#logly-lift-4279493 #logly-lift-widget-content {
+  display: block;
+  flex-wrap: wrap;
+}
+
+#logly-lift-4279493 .logly-lift-ad {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  margin: 0;
+  padding: 16px;
+}
+
+#logly-lift-4279493 .logly-lift-ad:first-child {
+  border-top: 1px solid #e8e8e8;
+}
+
+#logly-lift-4279493 .logly-lift-ad .fa {
+  color: #55c500;
+  font-size: 40px;
+}
+
+#logly-lift-4279493 .logly-lift-ad .fa-fw {
+  width: 40px;
+  height: 40px;
+  text-align: left;
+}
+
+#logly-lift-4279493 .logly-lift-ad-icon {
+  overflow: hidden;
+  border-radius: 0.2em;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+#logly-lift-4279493 .logly-lift-ad-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+#logly-lift-4279493 .logly-lift-ad-content {
+  display: block;
+}
+
+#logly-lift-4279493 .logly-lift-ad-link {
+  margin-right: 8px;
+}
+
+#logly-lift-4279493 .logly-lift-ad-title {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 8px;
+}
+
+#logly-lift-4279493 .logly-lift-ad-title:visited {
+  color: #777;
+}
+
+#logly-lift-4279493 .logly-lift-ad-link:hover .logly-lift-ad-title {
+  text-decoration: underline;
+}
+
+#logly-lift-4279493 .logly-lift-ad-author {
+  display: block;
+  color: #999;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+#logly-lift-4279493 .logly-lift-ad-adv {
+  display: block;
+  color: #999;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+
+
+</style></head><body><iframe src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/sync.html" scrolling="no" style="display: none; border: none;"></iframe><div class="allWrapper"><div data-hyperapp-app="GlobalHeader" data-hyperapp-props="{&quot;unreadNotificationsCount&quot;:null,&quot;realms&quot;:[{&quot;humanName&quot;:&quot;Qiita&quot;,&quot;isCurrentRealm&quot;:true,&quot;isQiita&quot;:true,&quot;isQiitaTeam&quot;:false,&quot;loggedInUser&quot;:null,&quot;teamId&quot;:null,&quot;url&quot;:&quot;https://qiita.com/&quot;}],&quot;teamFindUrl&quot;:&quot;https://teams-center.qiita.com/find_team&quot;,&quot;isTeamOnlyUser&quot;:null,&quot;currentUser&quot;:null}" data-hyperapp-mounted="true"><div class="st-Header" id="globalHeader"><div class="st-Header_container"><div class="st-Header_start"><a class="st-Header_logo mr-1" href="https://qiita.com/"><svg viewBox="0 0 75 25" xmlns="http://www.w3.org/2000/svg"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></a><div><div class="st-Header_realmSelector" tabindex="0"><span class="fa fa-fw fa-caret-down"></span></div><div class="st-Header_dropdown st-RealmSelector"><div class="st-RealmSelector_realms"><a class="st-Header_dropdownItem st-RealmItem" href="https://qiita.com/"><div class="st-RealmItem_statusIcon"><span class="fa fa-fw fa-check"></span></div><div class="st-RealmItem_humanName">Qiita</div></a></div><hr><div class="st-RealmSelector_supplements"><div class="st-RealmSelector_label">ログイン中のチームがありません</div><a href="https://teams-center.qiita.com/find_team" class="st-Header_dropdownItem st-RealmSelectorSupplement"><div class="st-RealmSelectorSupplement_icon"><span class="fa fa-fw fa-sign-in"></span></div><div>Qiita:Team にログイン...</div></a></div></div></div><div><div class="st-Header_community" tabindex="0">コミュニティ<span class="fa fa-fw fa-caret-down ml-1of2"></span></div><div class="st-Header_dropdown"><a href="https://qiita.com/users" class="st-Header_dropdownItem"><span class="fa fa-fw fa-users mr-1of2"></span>ユーザー一覧</a><a href="https://qiita.com/organizations" class="st-Header_dropdownItem"><span class="fa fa-fw fa-building-o mr-1of2"></span>Organization一覧</a><a href="https://qiita.com/advent-calendar" class="st-Header_dropdownItem"><span class="fa fa-fw fa-calendar mr-1of2"></span>アドベントカレンダー</a><div class="st-Header_dropdownSeparator"></div><a href="https://jobs.qiita.com/?utm_source=qiita&amp;utm_medium=referral&amp;utm_content=header" class="st-Header_dropdownItem" target="_blank"><span class="fa fa-fw fa-search mr-1of2"></span>Qiita Jobs</a><a href="https://qiitadon.com/" class="st-Header_dropdownItem" target="_blank"><span class="fa fa-fw fa-comments-o mr-1of2"></span>Qiitadon (β)</a><a href="https://zine.qiita.com/?utm_source=qiita&amp;utm_medium=referral&amp;utm_content=header" class="st-Header_dropdownItem" target="_blank"><span class="fa fa-fw fa-newspaper-o mr-1of2"></span>Qiita:Zine</a><div class="st-Header_dropdownSeparator"></div><a href="https://help.qiita.com/ja/articles/qiita-community-guideline" class="st-Header_dropdownItem" target="_blank"><span class="fa fa-fw fa-book mr-1of2"></span>コミュニティガイドライン</a><a href="https://help.qiita.com/ja/articles/qiita-article-guideline" class="st-Header_dropdownItem" target="_blank"><span class="fa fa-fw fa-book mr-1of2"></span>良い記事を書くために</a></div></div><form class="st-Header_search" action="https://qiita.com/search" method="get"><span class="fa fa-search"></span><input class="st-Header_searchInput" placeholder="キーワードを入力" type="search" autocomplete="off" name="q" required=""></form><div class="st-Header_searchButton"><span class="fa fa-search"></span></div></div><div class="st-Header_end"><a class="st-Header_signupButton" href="https://qiita.com/signup?redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5">ユーザ登録</a><a class="st-Header_loginLink" href="https://qiita.com/login?redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5">ログイン</a></div><div class="st-Header_overlay"></div><form class="st-Header_searchModal" action="https://qiita.com/search" method="get"><input class="st-Header_searchModalInput" type="text" autocomplete="off" placeholder="キーワードを入力" name="q" required=""></form></div></div></div><div class="st-HeaderAlert st-HeaderAlert-warning"><div class="st-HeaderAlert_body"></div></div><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/","name":"Qiita"}},{"@type":"ListItem","position":2,"item":{"@id":"/tags/%23%3CQiita::Graph::Result:0x000055dbfd2a3a80%3E","name":"Python3"}}]}</script><script>td.set('pageviews_article', {user_id: "", article_id: "667514", article_uuid: "d2862e7ef7ec7f1b07e5" })
+td.trackPageview('pageviews_article')</script><script async="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/qiita_bigmining.js.ダウンロード"></script><div style="display:none"><div class="TagList__label"><span></span><span>Python3</span></div><div class="TagList__label"><span></span><span>Django2.0</span></div></div><img style="display:block;margin:0;padding:0;border:0;outline:0;width:0;height:0;line-height:0;" alt="" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/bizmatrix"><div data-hyperapp-app="PersonalPublicArticle" data-hyperapp-props="{&quot;article&quot;:{&quot;body&quot;:&quot;\u003cp\u003ePython + Django でデータベースのテーブルをCSV形式でダウンロードし、そのCSVを編集してアップロードし、データベースのテーブルを更新します\u003c/p\u003e\n\n\u003cp\u003eマスタの一括登録処理を作成するようなケースです。\u003c/p\u003e\n\n\u003cp\u003e以下の続きです。\u003cbr\u003e\n\u003ca href=\&quot;https://qiita.com/tiguchi919/items/f9052d259cec7fe54a00\&quot; id=\&quot;reference-1664ed87a2af586bd846\&quot;\u003ePython + DjangoをWindowsにインストールする\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\&quot;https://qiita.com/tiguchi919/items/0fd7bf799571330f0219\&quot; id=\&quot;reference-d164ae733481425237fa\&quot;\u003ePython + Django + psycopg2でposgreSQLに接続する\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\&quot;https://qiita.com/tiguchi919/items/827865481e82bb32ad04\&quot; id=\&quot;reference-68a54221c8087bc83045\&quot;\u003ePython+Django+psycopg2で内部結合クエリを試す\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003e※プロジェクト名やbase.htmlは少し変更しています。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;1開発環境\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#1%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e1.開発環境\u003c/h3\u003e\n\n\u003cp\u003eOS=windows10 64bit home\u003cbr\u003e\npython=3.6.5\u003cbr\u003e\nDjango=2.0.7\u003cbr\u003e\npsycopg2=2.7.4\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;2概要\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#2%E6%A6%82%E8%A6%81\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e2.概要\u003c/h3\u003e\n\n\u003cp\u003e下図のような処理を実装します。\u003c/p\u003e\n\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:1386px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=45abbc1bbd96a2aa9a68d4457ba29136\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(914 / 1386 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=2cc65179580a916bacac667b59f882c9\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=5ec53c79a37b6b4fbd6e57e4480efdc9\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=45abbc1bbd96a2aa9a68d4457ba29136\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n\n\u003cp\u003e【解説】\u003c/p\u003e\n\n\u003cp\u003e(1)インポート\u003c/p\u003e\n\n\u003cp\u003eまず、テーブルの一覧画面で、①インポートボタンを押して、ファイル選択画面を表示し、②CSVを選択し\u003cbr\u003e\n③送信ボタンを押すと、CSVのデータをテーブルに登録します。\u003c/p\u003e\n\n\u003cp\u003e(2)エクスポート\u003c/p\u003e\n\n\u003cp\u003e同様に、テーブル一覧画面で①エクスポートを押すと、テーブルを全件検索してCSVを作成して画面にダウンロードします。(1)で利用するCSVファイルとして利用するイメージです。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;3アプリケーション作成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#3%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e3.アプリケーション作成\u003c/h3\u003e\n\n\u003cp\u003e(1)アプリケーションを作成する\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e(venv) C:\\data\\python\\myproject\u0026gt;python manage.py startapp csvdownload\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e(2)アプリの構成\u003c/p\u003e\n\n\u003cp\u003e以下、作成後のフォルダ、ファイル構成です。「#追加」は、startappでは作成されないので追加しています\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003ecsvdownload\n│  admin.py\n│  apps.py\n│  forms.py  #追加\n│  models.py\n│  tests.py\n│  urls.py  #追加\n│  views.py\n│  __init__.py\n│  \n・・・\n├─templates  #追加\n│  └─csvdownload  #追加\n│          import.html  #追加\n│          list.html  #追加\n・・・\n├─myproject\n│  │  settings.py\n│  │  urls.py\n│  │  wsgi.py\n・・・\n├─static\n│  ├─css\n│  │      bootstrap.min.css\n│  │      bootstrap.min.css.map\n│  │      style.css\n│  │      \n│  └─js\n│          bootstrap.bundle.min.js\n│          jquery-3.3.1.min.js\n│          \n├─templates\n・・・\n│  ├─commons\n│  │      base.html\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;4実装\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#4%E5%AE%9F%E8%A3%85\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e4.実装\u003c/h3\u003e\n\n\u003cp\u003e(1)csvdownload\\models.py\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003ecsvdownload\\models.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.db\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003emodels\u003c/span\u003e\n\n\u003cspan class=\&quot;k\&quot;\u003eclass\u003c/span\u003e \u003cspan class=\&quot;nc\&quot;\u003ePost\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003emodels\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eModel\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;役職マスタ\&quot;\&quot;\&quot;\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003emodels\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eCharField\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;役職名&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003emax_length\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;mi\&quot;\u003e50\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n\n    \u003cspan class=\&quot;k\&quot;\u003edef\u003c/span\u003e \u003cspan class=\&quot;nf\&quot;\u003e__str__\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;bp\&quot;\u003eself\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n        \u003cspan class=\&quot;k\&quot;\u003ereturn\u003c/span\u003e \u003cspan class=\&quot;bp\&quot;\u003eself\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(2)myproject\\setting.py\u003c/p\u003e\n\n\u003cp\u003eプロジェクトにアプリを追加します\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003emyproject\\setting.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;err\&quot;\u003e・・・\u003c/span\u003e\n\u003cspan class=\&quot;n\&quot;\u003eINSTALLED_APPS\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\n\u003cspan class=\&quot;err\&quot;\u003e・・・・・\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.admin&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.auth&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.contenttypes&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.sessions&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.messages&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;django.contrib.staticfiles&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;bootstrap4&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e\n\u003cspan class=\&quot;err\&quot;\u003e・・・・・\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;c1\&quot;\u003e#追加\n\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e\n\u003cspan class=\&quot;err\&quot;\u003e・・・\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(3)migrate\u003c/p\u003e\n\n\u003cp\u003emigrateで、modelの追加と、データベース(postgreSQL)にもテーブルを追加しておきます。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003ecmd.prompt\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e(venv) C:\\data\\python\\myproject\u0026gt;python manage.py makemigrations csvdownload\n(venv) C:\\data\\python\\myproject\u0026gt;python manage.py migrate csvdownload\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(4)csvdownload\\forms.py\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003ecsvdownload\\forms.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eforms\u003c/span\u003e\n\n\u003cspan class=\&quot;k\&quot;\u003eclass\u003c/span\u003e \u003cspan class=\&quot;nc\&quot;\u003eCSVUploadForm\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eforms\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eForm\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n    \u003cspan class=\&quot;nb\&quot;\u003efile\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eforms\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eFileField\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003elabel\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;CSVファイル&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(5)csvdownload\\views.py\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003ecsvdownload\\views.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003ecsv\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003eio\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003eurllib\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.http\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eHttpResponse\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.urls\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ereverse_lazy\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.views\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003egeneric\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003e.forms\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eCSVUploadForm\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003e.models\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ePost\u003c/span\u003e\n\n\u003cspan class=\&quot;k\&quot;\u003eclass\u003c/span\u003e \u003cspan class=\&quot;nc\&quot;\u003eIndex\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003egeneric\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eListView\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;\n    役職テーブルの一覧表作成\n    \&quot;\&quot;\&quot;\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003emodel\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ePost\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003etemplate_name\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload/list.html&#39;\u003c/span\u003e\n\n    \u003cspan class=\&quot;k\&quot;\u003edef\u003c/span\u003e \u003cspan class=\&quot;nf\&quot;\u003eget_context_data\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;bp\&quot;\u003eself\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e**\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ekwargs\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;nb\&quot;\u003esuper\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e()\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eget_context_data\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e**\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ekwargs\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;form_name&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload&#39;\u003c/span\u003e\n        \u003cspan class=\&quot;k\&quot;\u003ereturn\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e\n\n\u003cspan class=\&quot;k\&quot;\u003eclass\u003c/span\u003e \u003cspan class=\&quot;nc\&quot;\u003ePostImport\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003egeneric\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eFormView\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;\n    役職テーブルの登録(csvアップロード)\n    \&quot;\&quot;\&quot;\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003etemplate_name\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload/import.html&#39;\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003esuccess_url\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ereverse_lazy\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload:index&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003eform_class\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eCSVUploadForm\u003c/span\u003e\n\n    \u003cspan class=\&quot;k\&quot;\u003edef\u003c/span\u003e \u003cspan class=\&quot;nf\&quot;\u003eget_context_data\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;bp\&quot;\u003eself\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e**\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ekwargs\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;nb\&quot;\u003esuper\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e()\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eget_context_data\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e**\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ekwargs\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;form_name&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload&#39;\u003c/span\u003e\n        \u003cspan class=\&quot;k\&quot;\u003ereturn\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ectx\u003c/span\u003e\n\n    \u003cspan class=\&quot;k\&quot;\u003edef\u003c/span\u003e \u003cspan class=\&quot;nf\&quot;\u003eform_valid\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;bp\&quot;\u003eself\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eform\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n        \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;postされたCSVファイルを読み込み、役職テーブルに登録します\&quot;\&quot;\&quot;\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ecsvfile\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eio\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eTextIOWrapper\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eform\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ecleaned_data\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;file&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e])\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ereader\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ecsv\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ereader\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ecsvfile\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n        \u003cspan class=\&quot;k\&quot;\u003efor\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003erow\u003c/span\u003e \u003cspan class=\&quot;ow\&quot;\u003ein\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ereader\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\n            \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;\n            役職テーブルを役職コード(primary key)で検索します\n            \&quot;\&quot;\&quot;\u003c/span\u003e\n            \u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ecreated\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ePost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eobjects\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eget_or_create\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003epk\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003erow\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;mi\&quot;\u003e0\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e])\u003c/span\u003e\n            \u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003erow\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;mi\&quot;\u003e1\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e\n            \u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003esave\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e()\u003c/span\u003e\n        \u003cspan class=\&quot;k\&quot;\u003ereturn\u003c/span\u003e \u003cspan class=\&quot;nb\&quot;\u003esuper\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e()\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eform_valid\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eform\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n\n\u003cspan class=\&quot;k\&quot;\u003edef\u003c/span\u003e \u003cspan class=\&quot;nf\&quot;\u003ePostExport\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003erequest\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e):\u003c/span\u003e\n    \u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\&quot;\n    役職テーブルを全件検索して、CSVファイルを作成してresponseに出力します。\n    \&quot;\&quot;\&quot;\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003eresponse\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eHttpResponse\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003econtent_type\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;text/csv; charset=Shift-JIS&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003efilename\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eurllib\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eparse\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003equote\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e((\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003eu&#39;CSVファイル.csv&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eencode\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;utf8\&quot;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e))\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003eresponse\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;Content-Disposition&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;attachment; filename*=UTF-8\u003c/span\u003e\u003cspan class=\&quot;se\&quot;\u003e\\&#39;\\&#39;\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e{}&#39;\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;nb\&quot;\u003eformat\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003efilename\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003ewriter\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ecsv\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ewriter\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eresponse\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)\u003c/span\u003e\n    \u003cspan class=\&quot;k\&quot;\u003efor\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e \u003cspan class=\&quot;ow\&quot;\u003ein\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ePost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eobjects\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;nb\&quot;\u003eall\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e():\u003c/span\u003e\n        \u003cspan class=\&quot;n\&quot;\u003ewriter\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ewriterow\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e([\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003epk\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003epost\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e])\u003c/span\u003e\n    \u003cspan class=\&quot;k\&quot;\u003ereturn\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eresponse\u003c/span\u003e\n\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(6)csvdownload\\urls.py\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003ecsvdownload\\urls.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.urls\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003e.\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eviews\u003c/span\u003e\n\n\u003cspan class=\&quot;n\&quot;\u003eapp_name\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload&#39;\u003c/span\u003e\n\u003cspan class=\&quot;n\&quot;\u003eurlpatterns\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eviews\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eIndex\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eas_view\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(),\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;index&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e),\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;import/&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eviews\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ePostImport\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eas_view\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(),\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;import&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e),\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;export/&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eviews\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003ePostExport\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003ename\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;export&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e),\u003c/span\u003e\n\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(7)csvdownload\\templates\\csvdownload\\list.html\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;html\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003elist.html\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e{% extends &#39;commons/base.html&#39; %}\n\n{% block headertitle %}\nCSVインポートエクスポート\n{% endblock %}\n\n{% block content %}\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;col-sm\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;nav\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;pull-right header\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;ul\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eid=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;menu\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% url &#39;csvdownload:import&#39; %}\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003eインポート\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% url &#39;csvdownload:export&#39; %}\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003eエクスポート\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/ul\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/nav\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;table\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;table table-sm table-striped\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;thead\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;tr\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;text-secondary bg-warning\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;th\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003estyle=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;width:25%;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e役職コード\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/th\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;th\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e役職名\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/th\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/tr\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/thead\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;tbody\u0026gt;\u003c/span\u003e\n    {% for post in post_list %}\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;tr\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;td\u0026gt;\u003c/span\u003e{{ post.pk }}\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/td\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;td\u0026gt;\u003c/span\u003e{{ post.name }}\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/td\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/tr\u0026gt;\u003c/span\u003e\n    {% endfor %}\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/tbody\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/table\u0026gt;\u003c/span\u003e\n{% endblock %}\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(8)csvdownload\\templates\\csvdownload\\import.html\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;html\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003eimport.html\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e{% extends &#39;commons/base.html&#39; %}\n\n{% block headertitle %}\nCSVインポート\n{% endblock %}\n\n{% block content %}\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;form\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eaction=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003emethod=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;POST\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eenctype=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;multipart/form-data\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;p\u0026gt;\u003c/span\u003eファイルを選択ボタンをクリックして、アップロードするCSVファイルを選択します\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/p\u0026gt;\u003c/span\u003e\n  {% csrf_token %}\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;form-group\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    {{form.file}}\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;br/\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;button\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003etype=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;submit\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e送信\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/button\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/form\u0026gt;\u003c/span\u003e\n{% endblock %}\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003cp\u003e(9)templates\\commons\\base.html\u003c/p\u003e\n\n\u003cp\u003e再掲しておきます。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;html\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003etemplates\\commons\\base.html\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e{% load staticfiles %}\n{% load bootstrap4 %}\n\u003cspan class=\&quot;cp\&quot;\u003e\u0026lt;!DOCTYPE html\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;html\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;head\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;meta\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003echarset=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;utf-8\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;meta\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ename=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;viewport\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003econtent=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;width=device-width, initial-scale=1\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;link\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003erel=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;stylesheet\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003etype=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;text/css\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% static &#39;css/bootstrap.min.css&#39; %}\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;link\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003erel=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;stylesheet\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003etype=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;text/css\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% static &#39;css/style.css&#39; %}\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;title\u0026gt;\u003c/span\u003e\n      {% block title %}{% endblock %}\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/title\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;style\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003ebody\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n          \u003cspan class=\&quot;nl\&quot;\u003epadding\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;m\&quot;\u003e3px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003ediv\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.container\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n          \u003cspan class=\&quot;nl\&quot;\u003emin-width\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\u003cspan class=\&quot;m\&quot;\u003e600px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003enav\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.header\u003c/span\u003e \u003cspan class=\&quot;nt\&quot;\u003eul\u003c/span\u003e\u003cspan class=\&quot;nf\&quot;\u003e#menu\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003emargin\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\u003cspan class=\&quot;m\&quot;\u003e0px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003epadding\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\u003cspan class=\&quot;m\&quot;\u003e0px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003enav\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.header\u003c/span\u003e \u003cspan class=\&quot;nt\&quot;\u003eul\u003c/span\u003e\u003cspan class=\&quot;nf\&quot;\u003e#menu\u003c/span\u003e \u003cspan class=\&quot;nt\&quot;\u003eli\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003efloat\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\u003cspan class=\&quot;nb\&quot;\u003eright\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003elist-style-type\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e\u003cspan class=\&quot;nb\&quot;\u003enone\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003etext-decoration\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;nb\&quot;\u003eunderline\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n            \u003cspan class=\&quot;nl\&quot;\u003epadding-left\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;m\&quot;\u003e10px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003ediv\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.header\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n          \u003cspan class=\&quot;nl\&quot;\u003epadding\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;m\&quot;\u003e3px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\u003cspan class=\&quot;nl\&quot;\u003emargin-bottom\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;m\&quot;\u003e5px\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003ediv\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.header\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e*\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n          \u003cspan class=\&quot;nl\&quot;\u003ecolor\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;no\&quot;\u003ewhite\u003c/span\u003e \u003cspan class=\&quot;cp\&quot;\u003e!important\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003ediv\u003c/span\u003e\u003cspan class=\&quot;nc\&quot;\u003e.header\u003c/span\u003e \u003cspan class=\&quot;nc\&quot;\u003e.title\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\n          \u003cspan class=\&quot;nl\&quot;\u003efont-size\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e:\u003c/span\u003e \u003cspan class=\&quot;m\&quot;\u003e1.2em\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e;\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n        \u003cspan class=\&quot;p\&quot;\u003e{\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e%\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003eblock\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003estyles\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003e%\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e}{\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e%\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003eendblock\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003e%\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e}\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/style\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/head\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;body\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;container\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;inner\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;text-right\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e{{ form_name }}\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;row header mysystem-header\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;col-sm title\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n        {% block headertitle %}{% endblock %}\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;col-sm\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;nav\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;pull-right header\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;ul\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eid=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;menu\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n              \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eonclick=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;javascript:history.go(-1); return false;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e戻る\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n              {% if user.is_authenticated %}\n                \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% url &#39;logout&#39; %}\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;logout\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003eログアウト\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n                {% if form_name == \&quot;password_change\&quot; %}\n                {% else %}\n                    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% url &#39;accounts:password_change&#39; %}\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003eパスワード変更\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n                {% endif %}\n              {% else %}\n              {% endif %}\n              \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;li\u0026gt;\u0026lt;a\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003ehref=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% url &#39;accounts:index&#39; %}\&quot;\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003eＴＯＰ\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/a\u0026gt;\u0026lt;/li\u0026gt;\u003c/span\u003e\n            \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/ul\u0026gt;\u003c/span\u003e\n        \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/nav\u0026gt;\u003c/span\u003e\n      \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;div\u003c/span\u003e \u003cspan class=\&quot;na\&quot;\u003eclass=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;row content\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u003c/span\u003e\n        {% block content %}{% endblock %}\n    \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n  \u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/div\u0026gt;\u003c/span\u003e\n\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;script \u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003esrc=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% static \&quot;\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ejs\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e/\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ejquery-3\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003e3\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003e1\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003emin\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ejs\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e\&quot;\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003e%}\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u0026lt;/script\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;script \u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003esrc=\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e\&quot;{% static \&quot;\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ejs\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e/\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ebootstrap\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ebundle\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003emin\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;na\&quot;\u003ejs\u003c/span\u003e\u003cspan class=\&quot;err\&quot;\u003e\&quot;\u003c/span\u003e \u003cspan class=\&quot;err\&quot;\u003e%}\&quot;\u003c/span\u003e\u003cspan class=\&quot;nt\&quot;\u003e\u0026gt;\u0026lt;/script\u0026gt;\u003c/span\u003e\n{% block scripts %}{% endblock %}\n\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/body\u0026gt;\u003c/span\u003e\n\u003cspan class=\&quot;nt\&quot;\u003e\u0026lt;/html\u0026gt;\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;5プロジェクトにアプリのurlを追加する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#5%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AEurl%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e5.プロジェクトにアプリのURLを追加する\u003c/h3\u003e\n\n\u003cp\u003e(1)myproject\\urls.py\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;python\&quot;\u003e\n\u003cdiv class=\&quot;code-lang\&quot;\u003e\u003cspan class=\&quot;bold\&quot;\u003emyproject\\urls.py\u003c/span\u003e\u003c/div\u003e\n\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.contrib\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eadmin\u003c/span\u003e\n\u003cspan class=\&quot;kn\&quot;\u003efrom\u003c/span\u003e \u003cspan class=\&quot;nn\&quot;\u003edjango.urls\u003c/span\u003e \u003cspan class=\&quot;kn\&quot;\u003eimport\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003einclude\u003c/span\u003e\n\n\u003cspan class=\&quot;n\&quot;\u003eurlpatterns\u003c/span\u003e \u003cspan class=\&quot;o\&quot;\u003e=\u003c/span\u003e \u003cspan class=\&quot;p\&quot;\u003e[\u003c/span\u003e\n\u003cspan class=\&quot;err\&quot;\u003e・・・・\u003c/span\u003e\n    \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload/&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003einclude\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;csvdownload.urls&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e)),\u003c/span\u003e \u003cspan class=\&quot;c1\&quot;\u003e#\&quot;追加\&quot;)\n\u003c/span\u003e    \u003cspan class=\&quot;n\&quot;\u003epath\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e(\u003c/span\u003e\u003cspan class=\&quot;s\&quot;\u003e&#39;admin/&#39;\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e,\u003c/span\u003e \u003cspan class=\&quot;n\&quot;\u003eadmin\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003esite\u003c/span\u003e\u003cspan class=\&quot;o\&quot;\u003e.\u003c/span\u003e\u003cspan class=\&quot;n\&quot;\u003eurls\u003c/span\u003e\u003cspan class=\&quot;p\&quot;\u003e),\u003c/span\u003e\n\u003cspan class=\&quot;p\&quot;\u003e]\u003c/span\u003e\n\u003c/pre\u003e\u003c/div\u003e\n\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;6動作確認\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#6%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e6.動作確認\u003c/h3\u003e\n\n\u003cp\u003e(1)(venv) C:\\data\\python\\myproject\u0026gt;manage.py runserver\u003c/p\u003e\n\n\u003cp\u003e\u003ca href=\&quot;http://localhost:8000/csvdownload/\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003ehttp://localhost:8000/csvdownload/\u003c/a\u003eにアクセスします\u003c/p\u003e\n\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:2522px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=869bbcc73f1e1684f753830e467c64b9\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(1127 / 2522 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=8fc63b869b3ff1efd11f545614a32b9a\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=47fb1681df16683c42480331232faabe\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=869bbcc73f1e1684f753830e467c64b9\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n\n(2)エクスポート\u003cbr\u003e\nエクスポートでCSVをダウンロードします\u003cbr\u003e\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:2522px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=a04456c1099eba606a5cf826e6ebbce6\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(1127 / 2522 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=2230a115c2bd53cc0ab1b304e974d5e1\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=01fbf91f25147cdb380b8a8ebb008c32\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=a04456c1099eba606a5cf826e6ebbce6\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n\n(3)CSV\u003cbr\u003e\nダウンロードしたファイルに1行追加して、インポートしてみます。\u003cbr\u003e\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:2309px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=4f11b2d97e8abe3c774856f0984314c2\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(625 / 2309 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=d52d87249137ccaf0fbee6d4ac08a261\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=da5cf4526eff3fc531f515b5d42015d7\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=4f11b2d97e8abe3c774856f0984314c2\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n\n(4)インポート\u003cbr\u003e\n編集したファイルを指定して送信します。\u003cbr\u003e\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:2522px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=4e9e5f70635157eba453b550fb9fd42c\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(1030 / 2522 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=4f919da9ac078367a4d797c0229b281f\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=fb370eafb7fd9a1fca838c49d770125c\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=4e9e5f70635157eba453b550fb9fd42c\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n\n(5)一覧画面で登録確認\u003cbr\u003e\n更新に成功しています\u003cbr\u003e\n\u003cdiv class=\&quot;image-lazy-loading-container\&quot; style=\&quot;width:2522px; max-width:100%;\&quot;\u003e\u003ca href=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=869e24afef9f832be6022904e26e43f7\&quot; target=\&quot;_blank\&quot;\u003e\u003cdiv class=\&quot;image-lazy-loading\&quot; style=\&quot;padding-top: calc(1360 / 2522 * 100%);\&quot; data-src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=1400\u0026amp;s=fec18c5998775170b5bd8b7bcc2ea6f2\&quot; data-placeholdersrc=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;w=60\u0026amp;q=20\u0026amp;blur=300\u0026amp;s=0680bd349bd2599d44964dc0fa53fcc4\&quot;\u003e\u003cnoscript\u003e\u003cimg src=\&quot;https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2\u0026amp;auto=compress%2Cformat\u0026amp;fit=max\u0026amp;s=869e24afef9f832be6022904e26e43f7\&quot;\u003e\u003c/noscript\u003e\u003c/div\u003e\u003c/a\u003e\u003c/div\u003e\n&quot;,&quot;createdAt&quot;:&quot;2018-07-12T13:38:36Z&quot;,&quot;elapsedYearsFromUpdatedAt&quot;:0,&quot;isDeprecated&quot;:false,&quot;isDestroyableByViewer&quot;:false,&quot;isEditRequestSendableByViewer&quot;:true,&quot;isLikableByViewer&quot;:true,&quot;isLikedByViewer&quot;:false,&quot;isPublic&quot;:true,&quot;isSlide&quot;:false,&quot;isStockableByViewer&quot;:true,&quot;isStockedByViewer&quot;:false,&quot;isUpdatableByViewer&quot;:false,&quot;isUpdated&quot;:true,&quot;likesCount&quot;:16,&quot;originalId&quot;:667514,&quot;title&quot;:&quot;Python + Django でCSVのダウンロード／アップロード&quot;,&quot;toc&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#1%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83\&quot;\u003e1.開発環境\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#2%E6%A6%82%E8%A6%81\&quot;\u003e2.概要\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#3%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90\&quot;\u003e3.アプリケーション作成\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#4%E5%AE%9F%E8%A3%85\&quot;\u003e4.実装\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#5%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AEurl%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B\&quot;\u003e5.プロジェクトにアプリのURLを追加する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#6%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D\&quot;\u003e6.動作確認\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;totalPv&quot;:6703,&quot;updatedAt&quot;:&quot;2019-08-16T14:45:17Z&quot;,&quot;uuid&quot;:&quot;d2862e7ef7ec7f1b07e5&quot;,&quot;adventCalendarItem&quot;:null,&quot;author&quot;:{&quot;description&quot;:null,&quot;name&quot;:&quot;&quot;,&quot;profileImageUrl&quot;:&quot;https://qiita-user-profile-images.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2F-XdUIqdMkCWA%2FAAAAAAAAAAI%2FAAAAAAAAAAA%2F4252rscbv5M%2Fphoto.jpg%3Fsz%3D50?ixlib=rb-1.2.2\u0026auto=compress%2Cformat\u0026lossless=0\u0026w=48\u0026s=eb716cf22e265688af4fa353bb96766c&quot;,&quot;profileImageUrlW48&quot;:&quot;https://qiita-user-profile-images.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2F-XdUIqdMkCWA%2FAAAAAAAAAAI%2FAAAAAAAAAAA%2F4252rscbv5M%2Fphoto.jpg%3Fsz%3D50?ixlib=rb-1.2.2\u0026auto=compress%2Cformat\u0026lossless=0\u0026w=48\u0026s=eb716cf22e265688af4fa353bb96766c&quot;,&quot;profileImageUrlW75&quot;:&quot;https://qiita-user-profile-images.imgix.net/https%3A%2F%2Flh3.googleusercontent.com%2F-XdUIqdMkCWA%2FAAAAAAAAAAI%2FAAAAAAAAAAA%2F4252rscbv5M%2Fphoto.jpg%3Fsz%3D50?ixlib=rb-1.2.2\u0026auto=compress%2Cformat\u0026lossless=0\u0026w=75\u0026s=3e52939cde81e2323ac22e5fa9b3e1e7&quot;,&quot;urlName&quot;:&quot;t-iguchi&quot;,&quot;isFollowedByViewer&quot;:false,&quot;isFollowableByViewer&quot;:true,&quot;websiteUrl&quot;:&quot;&quot;,&quot;organizations&quot;:{&quot;edges&quot;:[]}},&quot;tags&quot;:[{&quot;name&quot;:&quot;Python3&quot;,&quot;urlName&quot;:&quot;python3&quot;},{&quot;name&quot;:&quot;Django2.0&quot;,&quot;urlName&quot;:&quot;django2.0&quot;}],&quot;followingLikers&quot;:{&quot;edges&quot;:[]},&quot;comments&quot;:{&quot;totalCount&quot;:2}},&quot;viewer&quot;:null,&quot;analyticsTrackingId&quot;:null}" data-hyperapp-mounted="true"><div class="p-items" itemscope="itemscope" itemtype="http://schema.org/Article"><div class="p-items_wrapper"><div class="p-items_container"><div class="it-Actions p-items_stickyMenu"><div class="it-Actions_item it-Actions_item-like likable"><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5/likers" class="it-Actions_likeCount">16</a><button><i class="fa fa-fw fa-thumbs-up"></i></button></div><div class="it-Actions_item it-Actions_item-stock"><button><span class="fa fa-folder-open"></span></button></div><div class="it-Actions_jumpToCommentButton"><div class="it-Actions_commentCount">2</div><div class="fa fa-fw fa-comment"></div></div><div class="it-Actions_shareButton it-Actions_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Actions_shareButton it-Actions_shareButton-facebook"><span class="fa fa-facebook"></span></div></div><div class="p-items_main"><div class="p-items_article"><div class="it-Header"><div class="u-flex-center-between mb-3"><div class="it-Header_info"><div class="it-Header_author"><a href="https://qiita.com/t-iguchi"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___lh3.googleusercontent.com_-XdUIqdMkCWA_AAAAAAAAAAI_AAAAAAAAAAA_4252rscbv5M_photo.jpg_sz=50" alt="t-iguchi" class="it-Header_authorImage"></a><a href="https://qiita.com/t-iguchi" class="it-Header_authorName">@t-iguchi</a></div><div class="it-Header_time"><span><meta content="2018-07-12T13:38:36Z" itemprop="datePublished"><time datetime="2019-08-16T14:45:17Z" itemprop="dateModified">2019年08月16日に更新</time></span></div><div class="it-Header_meta"><div class="it-Header_manipulate"><div class="it-Header_dropdown"><span class="it-Header_dropdownToggle" tabindex="0"><span class="fa fa-ellipsis-h fa-lg"></span></span><div class="st-Dropdown right"><div><div class="it-Header_dropdown-title">記事の改善</div><a href="https://qiita.com/drafts/d2862e7ef7ec7f1b07e5/edit" class="st-Dropdown_item"><span class="fa fa-fw fa-code-fork pr-1"></span>編集リクエストを送る</a><div class="st-Dropdown_separator"></div></div><div class="it-Header_dropdown-title">記事の情報</div><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5/revisions" class="st-Dropdown_item"><span class="fa fa-fw fa-history pr-1"></span>編集履歴</a><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5/patches" class="st-Dropdown_item"><span class="fa fa-fw fa-inbox pr-1"></span>編集リクエスト一覧</a><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5/likers" class="st-Dropdown_item"><span class="fa fa-fw fa-thumbs-up pr-1"></span>いいねしたユーザ一覧</a><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5.md" class="st-Dropdown_item"><span class="fa fa-fw fa-file-text-o pr-1"></span>Markdown で本文を見る</a><div class="st-Dropdown_separator"></div><div class="st-Dropdown_item"><span class="fa fa-fw fa-flag pr-1"></span>問題がある記事を報告する</div></div></div></div></div></div></div><h1 class="it-Header_title" itemprop="headline">Python + Django でCSVのダウンロード／アップロード</h1><div class="it-Tags"><a href="https://qiita.com/tags/python3" class="it-Tags_item"><span>Python3</span></a><a href="https://qiita.com/tags/django2.0" class="it-Tags_item"><span>Django2.0</span></a></div></div><div class="it-ActionsMobile"><div class="it-ActionsMobile_like likable"><button><span class="fa fa-fw fa-thumbs-up"></span><span>16</span></button></div><div class="it-ActionsMobile_stock"><button><span class="fa fa-folder-open"></span></button></div></div><section class="it-MdContent" itemprop="articleBody"><div id="item-d2862e7ef7ec7f1b07e5"><p>Python + Django でデータベースのテーブルをCSV形式でダウンロードし、そのCSVを編集してアップロードし、データベースのテーブルを更新します</p>
+
+<p>マスタの一括登録処理を作成するようなケースです。</p>
+
+<p>以下の続きです。<br>
+<a href="https://qiita.com/tiguchi919/items/f9052d259cec7fe54a00" id="reference-1664ed87a2af586bd846">Python + DjangoをWindowsにインストールする</a><br>
+<a href="https://qiita.com/tiguchi919/items/0fd7bf799571330f0219" id="reference-d164ae733481425237fa">Python + Django + psycopg2でposgreSQLに接続する</a><br>
+<a href="https://qiita.com/tiguchi919/items/827865481e82bb32ad04" id="reference-68a54221c8087bc83045">Python+Django+psycopg2で内部結合クエリを試す</a></p>
+
+<p>※プロジェクト名やbase.htmlは少し変更しています。</p>
+
+<h3>
+<span id="1開発環境" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#1%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83"><i class="fa fa-link"></i></a>1.開発環境</h3>
+
+<p>OS=windows10 64bit home<br>
+python=3.6.5<br>
+Django=2.0.7<br>
+psycopg2=2.7.4</p>
+
+<h3>
+<span id="2概要" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#2%E6%A6%82%E8%A6%81"><i class="fa fa-link"></i></a>2.概要</h3>
+
+<p>下図のような処理を実装します。</p>
+
+<div class="image-lazy-loading-container" style="width:1386px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=45abbc1bbd96a2aa9a68d4457ba29136" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(914 / 1386 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=2cc65179580a916bacac667b59f882c9" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=5ec53c79a37b6b4fbd6e57e4480efdc9"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffa39def1-4233-fb6e-3961-825879bfedb9.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=45abbc1bbd96a2aa9a68d4457ba29136"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_fa39def1-4233-fb6e-3961-825879bfedb9.png" class="image-lazy-loading__image image-lazy-loading__image--loaded" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_fa39def1-4233-fb6e-3961-825879bfedb9(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+
+<p>【解説】</p>
+
+<p>(1)インポート</p>
+
+<p>まず、テーブルの一覧画面で、①インポートボタンを押して、ファイル選択画面を表示し、②CSVを選択し<br>
+③送信ボタンを押すと、CSVのデータをテーブルに登録します。</p>
+
+<p>(2)エクスポート</p>
+
+<p>同様に、テーブル一覧画面で①エクスポートを押すと、テーブルを全件検索してCSVを作成して画面にダウンロードします。(1)で利用するCSVファイルとして利用するイメージです。</p>
+
+<h3>
+<span id="3アプリケーション作成" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#3%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>3.アプリケーション作成</h3>
+
+<p>(1)アプリケーションを作成する</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>(venv) C:\data\python\myproject&gt;python manage.py startapp csvdownload
+</pre></div></div>
+
+<p>(2)アプリの構成</p>
+
+<p>以下、作成後のフォルダ、ファイル構成です。「#追加」は、startappでは作成されないので追加しています</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>csvdownload
+│  admin.py
+│  apps.py
+│  forms.py  #追加
+│  models.py
+│  tests.py
+│  urls.py  #追加
+│  views.py
+│  __init__.py
+│  
+・・・
+├─templates  #追加
+│  └─csvdownload  #追加
+│          import.html  #追加
+│          list.html  #追加
+・・・
+├─myproject
+│  │  settings.py
+│  │  urls.py
+│  │  wsgi.py
+・・・
+├─static
+│  ├─css
+│  │      bootstrap.min.css
+│  │      bootstrap.min.css.map
+│  │      style.css
+│  │      
+│  └─js
+│          bootstrap.bundle.min.js
+│          jquery-3.3.1.min.js
+│          
+├─templates
+・・・
+│  ├─commons
+│  │      base.html
+</pre></div></div>
+
+<h3>
+<span id="4実装" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#4%E5%AE%9F%E8%A3%85"><i class="fa fa-link"></i></a>4.実装</h3>
+
+<p>(1)csvdownload\models.py</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">csvdownload\models.py</span></div>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="s">"""役職マスタ"""</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="s">'役職名'</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+
+<p>(2)myproject\setting.py</p>
+
+<p>プロジェクトにアプリを追加します</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">myproject\setting.py</span></div>
+<div class="highlight"><pre><span class="err">・・・</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="err">・・・・・</span>
+    <span class="s">'django.contrib.admin'</span><span class="p">,</span>
+    <span class="s">'django.contrib.auth'</span><span class="p">,</span>
+    <span class="s">'django.contrib.contenttypes'</span><span class="p">,</span>
+    <span class="s">'django.contrib.sessions'</span><span class="p">,</span>
+    <span class="s">'django.contrib.messages'</span><span class="p">,</span>
+    <span class="s">'django.contrib.staticfiles'</span><span class="p">,</span>
+    <span class="s">'bootstrap4'</span><span class="p">,</span>
+<span class="err">・・・・・</span>
+    <span class="s">'csvdownload'</span><span class="p">,</span> <span class="c1">#追加
+</span><span class="p">]</span>
+<span class="err">・・・</span>
+</pre></div>
+</div>
+
+<p>(3)migrate</p>
+
+<p>migrateで、modelの追加と、データベース(postgreSQL)にもテーブルを追加しておきます。</p>
+
+<div class="code-frame" data-lang="text">
+<div class="code-lang"><span class="bold">cmd.prompt</span></div>
+<div class="highlight"><pre>(venv) C:\data\python\myproject&gt;python manage.py makemigrations csvdownload
+(venv) C:\data\python\myproject&gt;python manage.py migrate csvdownload
+</pre></div>
+</div>
+
+<p>(4)csvdownload\forms.py</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">csvdownload\forms.py</span></div>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="k">class</span> <span class="nc">CSVUploadForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">'CSVファイル'</span><span class="p">)</span>
+</pre></div>
+</div>
+
+<p>(5)csvdownload\views.py</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">csvdownload\views.py</span></div>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">CSVUploadForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span>
+
+<span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="s">"""
+    役職テーブルの一覧表作成
+    """</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'csvdownload/list.html'</span>
+
+    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="p">[</span><span class="s">'form_name'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'csvdownload'</span>
+        <span class="k">return</span> <span class="n">ctx</span>
+
+<span class="k">class</span> <span class="nc">PostImport</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">FormView</span><span class="p">):</span>
+    <span class="s">"""
+    役職テーブルの登録(csvアップロード)
+    """</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">'csvdownload/import.html'</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s">'csvdownload:index'</span><span class="p">)</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">CSVUploadForm</span>
+
+    <span class="k">def</span> <span class="nf">get_context_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_context_data</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">ctx</span><span class="p">[</span><span class="s">'form_name'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'csvdownload'</span>
+        <span class="k">return</span> <span class="n">ctx</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="s">"""postされたCSVファイルを読み込み、役職テーブルに登録します"""</span>
+        <span class="n">csvfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s">'file'</span><span class="p">])</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="s">"""
+            役職テーブルを役職コード(primary key)で検索します
+            """</span>
+            <span class="n">post</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">post</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">PostExport</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="s">"""
+    役職テーブルを全件検索して、CSVファイルを作成してresponseに出力します。
+    """</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">content_type</span><span class="o">=</span><span class="s">'text/csv; charset=Shift-JIS'</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">((</span><span class="s">u'CSVファイル.csv'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf8"</span><span class="p">))</span>
+    <span class="n">response</span><span class="p">[</span><span class="s">'Content-Disposition'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'attachment; filename*=UTF-8</span><span class="se">\'\'</span><span class="s">{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">():</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">post</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+</pre></div>
+</div>
+
+<p>(6)csvdownload\urls.py</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">csvdownload\urls.py</span></div>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">app_name</span> <span class="o">=</span> <span class="s">'csvdownload'</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">Index</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'index'</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'import/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">PostImport</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s">'import'</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'export/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">PostExport</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'export'</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+
+<p>(7)csvdownload\templates\csvdownload\list.html</p>
+
+<div class="code-frame" data-lang="html">
+<div class="code-lang"><span class="bold">list.html</span></div>
+<div class="highlight"><pre>{% extends 'commons/base.html' %}
+
+{% block headertitle %}
+CSVインポートエクスポート
+{% endblock %}
+
+{% block content %}
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"pull-right header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{% url 'csvdownload:import' %}"</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>インポート<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{% url 'csvdownload:export' %}"</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>エクスポート<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-sm table-striped"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"text-secondary bg-warning"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">""</span> <span class="na">style=</span><span class="s">"width:25%;"</span><span class="nt">&gt;</span>役職コード<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>役職名<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    {% for post in post_list %}
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>{{ post.pk }}<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>{{ post.name }}<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    {% endfor %}
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+
+<p>(8)csvdownload\templates\csvdownload\import.html</p>
+
+<div class="code-frame" data-lang="html">
+<div class="code-lang"><span class="bold">import.html</span></div>
+<div class="highlight"><pre>{% extends 'commons/base.html' %}
+
+{% block headertitle %}
+CSVインポート
+{% endblock %}
+
+{% block content %}
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>ファイルを選択ボタンをクリックして、アップロードするCSVファイルを選択します<span class="nt">&lt;/p&gt;</span>
+  {% csrf_token %}
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    {{form.file}}
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;br/&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>送信<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+
+<p>(9)templates\commons\base.html</p>
+
+<p>再掲しておきます。</p>
+
+<div class="code-frame" data-lang="html">
+<div class="code-lang"><span class="bold">templates\commons\base.html</span></div>
+<div class="highlight"><pre>{% load staticfiles %}
+{% load bootstrap4 %}
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"{% static 'css/bootstrap.min.css' %}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"{% static 'css/style.css' %}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>
+      {% block title %}{% endblock %}
+    <span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nt">body</span> <span class="p">{</span>
+          <span class="nl">padding</span> <span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">div</span><span class="nc">.container</span> <span class="p">{</span>
+          <span class="nl">min-width</span><span class="p">:</span><span class="m">600px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">nav</span><span class="nc">.header</span> <span class="nt">ul</span><span class="nf">#menu</span> <span class="p">{</span>
+            <span class="nl">margin</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">nav</span><span class="nc">.header</span> <span class="nt">ul</span><span class="nf">#menu</span> <span class="nt">li</span> <span class="p">{</span>
+            <span class="nl">float</span><span class="p">:</span><span class="nb">right</span><span class="p">;</span>
+            <span class="nl">list-style-type</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+            <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+            <span class="nl">padding-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">div</span><span class="nc">.header</span> <span class="p">{</span>
+          <span class="nl">padding</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span><span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">div</span><span class="nc">.header</span> <span class="o">*</span> <span class="p">{</span>
+          <span class="nl">color</span><span class="p">:</span> <span class="no">white</span> <span class="cp">!important</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">div</span><span class="nc">.header</span> <span class="nc">.title</span> <span class="p">{</span>
+          <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">{</span><span class="err">%</span> <span class="err">block</span> <span class="err">styles</span> <span class="err">%</span><span class="p">}{</span><span class="err">%</span> <span class="err">endblock</span> <span class="err">%</span><span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-right"</span><span class="nt">&gt;</span>{{ form_name }}<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row header mysystem-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm title"</span><span class="nt">&gt;</span>
+        {% block headertitle %}{% endblock %}
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"pull-right header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">onclick=</span><span class="s">"javascript:history.go(-1); return false;"</span><span class="nt">&gt;</span>戻る<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+              {% if user.is_authenticated %}
+                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{% url 'logout' %}"</span> <span class="na">class=</span><span class="s">"logout"</span><span class="nt">&gt;</span>ログアウト<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                {% if form_name == "password_change" %}
+                {% else %}
+                    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{% url 'accounts:password_change' %}"</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>パスワード変更<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                {% endif %}
+              {% else %}
+              {% endif %}
+              <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{% url 'accounts:index' %}"</span> <span class="na">class=</span><span class="s">""</span><span class="nt">&gt;</span>ＴＯＰ<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/nav&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row content"</span><span class="nt">&gt;</span>
+        {% block content %}{% endblock %}
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"{% static "</span><span class="na">js</span><span class="err">/</span><span class="na">jquery-3</span><span class="err">.</span><span class="na">3</span><span class="err">.</span><span class="na">1</span><span class="err">.</span><span class="na">min</span><span class="err">.</span><span class="na">js</span><span class="err">"</span> <span class="err">%}"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"{% static "</span><span class="na">js</span><span class="err">/</span><span class="na">bootstrap</span><span class="err">.</span><span class="na">bundle</span><span class="err">.</span><span class="na">min</span><span class="err">.</span><span class="na">js</span><span class="err">"</span> <span class="err">%}"</span><span class="nt">&gt;&lt;/script&gt;</span>
+{% block scripts %}{% endblock %}
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</div>
+
+<h3>
+<span id="5プロジェクトにアプリのurlを追加する" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#5%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AEurl%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>5.プロジェクトにアプリのURLを追加する</h3>
+
+<p>(1)myproject\urls.py</p>
+
+<div class="code-frame" data-lang="python">
+<div class="code-lang"><span class="bold">myproject\urls.py</span></div>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<span class="err">・・・・</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'csvdownload/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'csvdownload.urls'</span><span class="p">)),</span> <span class="c1">#"追加")
+</span>    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+
+<h3>
+<span id="6動作確認" class="fragment"></span><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#6%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D"><i class="fa fa-link"></i></a>6.動作確認</h3>
+
+<p>(1)(venv) C:\data\python\myproject&gt;manage.py runserver</p>
+
+<p><a href="http://localhost:8000/csvdownload/" rel="nofollow noopener" target="_blank">http://localhost:8000/csvdownload/</a>にアクセスします</p>
+
+<div class="image-lazy-loading-container" style="width:2522px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=869bbcc73f1e1684f753830e467c64b9" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(1127 / 2522 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=8fc63b869b3ff1efd11f545614a32b9a" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=47fb1681df16683c42480331232faabe"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F259e97ee-902c-feb3-2112-60de20189a05.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=869bbcc73f1e1684f753830e467c64b9"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_259e97ee-902c-feb3-2112-60de20189a05.png" class="image-lazy-loading__image" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_259e97ee-902c-feb3-2112-60de20189a05(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+
+(2)エクスポート<br>
+エクスポートでCSVをダウンロードします<br>
+<div class="image-lazy-loading-container" style="width:2522px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=a04456c1099eba606a5cf826e6ebbce6" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(1127 / 2522 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=2230a115c2bd53cc0ab1b304e974d5e1" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=01fbf91f25147cdb380b8a8ebb008c32"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Feed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=a04456c1099eba606a5cf826e6ebbce6"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_eed12eec-8bb5-4a5e-64f3-7933cd4fa03d.png" class="image-lazy-loading__image" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_eed12eec-8bb5-4a5e-64f3-7933cd4fa03d(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+
+(3)CSV<br>
+ダウンロードしたファイルに1行追加して、インポートしてみます。<br>
+<div class="image-lazy-loading-container" style="width:2309px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=4f11b2d97e8abe3c774856f0984314c2" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(625 / 2309 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=d52d87249137ccaf0fbee6d4ac08a261" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=da5cf4526eff3fc531f515b5d42015d7"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2Ffd29df1b-f5b2-070f-0f3d-8d893ab81b98.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=4f11b2d97e8abe3c774856f0984314c2"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_fd29df1b-f5b2-070f-0f3d-8d893ab81b98.png" class="image-lazy-loading__image" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_fd29df1b-f5b2-070f-0f3d-8d893ab81b98(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+
+(4)インポート<br>
+編集したファイルを指定して送信します。<br>
+<div class="image-lazy-loading-container" style="width:2522px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=4e9e5f70635157eba453b550fb9fd42c" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(1030 / 2522 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=4f919da9ac078367a4d797c0229b281f" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=fb370eafb7fd9a1fca838c49d770125c"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F7e4bd0b5-e193-901e-89bd-2807346a3464.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=4e9e5f70635157eba453b550fb9fd42c"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_7e4bd0b5-e193-901e-89bd-2807346a3464.png" class="image-lazy-loading__image" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_7e4bd0b5-e193-901e-89bd-2807346a3464(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+
+(5)一覧画面で登録確認<br>
+更新に成功しています<br>
+<div class="image-lazy-loading-container" style="width:2522px; max-width:100%;"><a href="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=869e24afef9f832be6022904e26e43f7" target="_blank"><div class="image-lazy-loading js-intersected" style="padding-top: calc(1360 / 2522 * 100%);" data-src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=1400&amp;s=fec18c5998775170b5bd8b7bcc2ea6f2" data-placeholdersrc="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;w=60&amp;q=20&amp;blur=300&amp;s=0680bd349bd2599d44964dc0fa53fcc4"><noscript><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.amazonaws.com%2F0%2F246741%2F74c2694e-1187-7c83-20b9-f51f6ba94dd0.png?ixlib=rb-1.2.2&amp;auto=compress%2Cformat&amp;fit=max&amp;s=869e24afef9f832be6022904e26e43f7"></noscript><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_74c2694e-1187-7c83-20b9-f51f6ba94dd0.png" class="image-lazy-loading__image image-lazy-loading__image--loaded" role="presentation"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_246741_74c2694e-1187-7c83-20b9-f51f6ba94dd0(1).png" class="image-lazy-loading__image image-lazy-loading__image--loaded"></div></a></div>
+</div></section><div class="it-Footer"><div class="it-Footer_actions"><div class="it-Footer_editRequest"><a href="https://qiita.com/drafts/d2862e7ef7ec7f1b07e5/edit" class="u-link-no-underline"><span class="fa fa-fw fa-code-fork"></span><span>編集リクエスト</span></a></div><div class="it-Footer_stock"><button><span class="fa fa-folder-open"></span><span class="it-Footer_stockLabel">ストック</span></button></div><div class="it-Footer_like"><button><span class="fa fa-fw fa-thumbs-up"></span><span>いいね</span></button><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5/likers" class="it-Footer_likeCount">16</a></div></div><div class="it-Footer_social"><div class="it-Footer_shareButton it-Footer_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-facebook"><span class="fa fa-facebook"></span></div></div></div><div class="ai-Container" itemprop="author" itemscope="true" itemtype="http://schema.org/Person"><div class="ai-User"><a href="https://qiita.com/t-iguchi"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___lh3.googleusercontent.com_-XdUIqdMkCWA_AAAAAAAAAAI_AAAAAAAAAAA_4252rscbv5M_photo(1).jpg_sz=50" alt="t-iguchi" class="ai-User_image" itemprop="image"></a><div class="ai-User_body"><div class="ai-User_header"><a href="https://qiita.com/t-iguchi" class="ai-User_urlname" itemprop="name">@t-iguchi</a></div><div class="ai-User_description"></div><div class="ai-User_footer"><div><button class="it-UserFollowButton it-UserFollowButton-follow">フォロー</button><div class="st-Modal"><div class="st-Modal_backdrop"></div><div class="st-Modal_body lm-Dialog"><div class="fa fa-times lm-Dialog_close"></div><div class="lm-Dialog_title">ユーザー登録して、Qiitaをもっと便利に使ってみませんか。</div><div class="lm-Dialog_message-pc">この機能を利用するにはログインする必要があります。ログインするとさらに便利にQiitaを利用できます。</div><div class="lm-Dialog_message-mobile">この機能を利用するにはログインする必要があります。ログインするとさらに便利にQiitaを利用できます。</div><ol class="lm-Dialog_list"><li>あなたにマッチした記事をお届けします<div class="description">ユーザーやタグをフォローすることで、あなたが興味を持つ技術分野の情報をまとめてキャッチアップできます</div></li><li>便利な情報をあとで効率的に読み返せます<div class="description">気に入った記事を「ストック」することで、あとからすぐに検索できます</div></li></ol><a href="https://qiita.com/signup?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi&amp;realm=qiita" class="lm-Dialog_button lm-Dialog_button-signup">登録する</a><a href="https://qiita.com/login?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi&amp;realm=qiita" class="lm-Dialog_button lm-Dialog_button-signin">ログインする</a></div></div></div></div></div></div></div><div class="apm-Content"><div class="apm-Content_title">ユーザー登録して、Qiitaをもっと便利に使ってみませんか。</div><ol class="apm-Content_list"><li>あなたにマッチした記事をお届けします<div class="description">ユーザーやタグをフォローすることで、あなたが興味を持つ技術分野の情報をまとめてキャッチアップできます</div></li><li>便利な情報をあとで効率的に読み返せます<div class="description">気に入った記事を「ストック」することで、あとからすぐに検索できます</div></li><div><a class="apm-Content_help" href="https://help.qiita.com/ja/articles/qiita-login-user" target="_blank"><i class="fa fa-fw fa-arrow-circle-right"></i>より詳しく</a></div></ol><a href="https://qiita.com/signup?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="apm-Content_button apm-Content_button-signup">登録する</a><a href="https://qiita.com/login?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="apm-Content_button apm-Content_button-signin">ログインする</a></div><div><div class="it-Ads_afterBodyContainer it-Ads_afterBodyContainer-narrow"><div class="it-Ads_afterBodyWrapper"><div id="dfp-slot-after-body-for-mobile" class="ad-336x280" data-test-adunitpath="/383564218/qiita.com_items-show_under-article-mobile" elementtiming="gpt-dfp-slot-after-body-for-mobile" data-google-query-id="CPbyrYaMz-QCFQkZKgodD1AKtA"><div id="google_ads_iframe_/383564218/qiita.com_items-show_under-article-mobile_0__container__" style="border: 0pt none; display: inline-block; width: 336px; height: 280px;"><iframe frameborder="0" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/container.html" id="google_ads_iframe_/383564218/qiita.com_items-show_under-article-mobile_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="336" height="280" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="4" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></div></div><div id="dfp-slot-after-body-for-text-ads" class="" data-test-adunitpath="/383564218/p_qiita_textad" elementtiming="gpt-dfp-slot-after-body-for-text-ads" data-google-query-id="CIWerIaMz-QCFQkZKgodD1AKtA"><div id="google_ads_iframe_/383564218/p_qiita_textad_0__container__" style="border: 0pt none; width: 300px; height: 30px;"></div></div></div></div></div><div class="p-items_options"><div class="mt-2"><div id="dfp-slot-sidebar-top" class="ad-300x250" data-test-adunitpath="/383564218/qiita.com_items-show_sidebar-top" elementtiming="gpt-dfp-slot-sidebar-top" data-google-query-id="CPXyrYaMz-QCFQkZKgodD1AKtA"><div id="google_ads_iframe_/383564218/qiita.com_items-show_sidebar-top_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe frameborder="0" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/container(1).html" id="google_ads_iframe_/383564218/qiita.com_items-show_sidebar-top_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="250" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div></div></div><div class="p-items_toc"><div class="mt-2"><div id="dfp-slot-sidebar-bottom" class="ad-300x250" data-test-adunitpath="/383564218/qiita.com_items-show_sidebar-bottom" elementtiming="gpt-dfp-slot-sidebar-bottom" data-google-query-id="CIOerIaMz-QCFQkZKgodD1AKtA"><div id="google_ads_iframe_/383564218/qiita.com_items-show_sidebar-bottom_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/383564218/qiita.com_items-show_sidebar-bottom_0" title="3rd party ad content" name="google_ads_iframe_/383564218/qiita.com_items-show_sidebar-bottom_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/saved_resource.html"></iframe></div></div></div><div class="it-Toc"><div class="it-Toc_nav"><ul>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#1%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83">1.開発環境</a>
+</li>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#2%E6%A6%82%E8%A6%81">2.概要</a>
+</li>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#3%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BD%9C%E6%88%90">3.アプリケーション作成</a>
+</li>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#4%E5%AE%9F%E8%A3%85">4.実装</a>
+</li>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#5%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AEurl%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">5.プロジェクトにアプリのURLを追加する</a>
+</li>
+<li>
+<a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#6%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">6.動作確認</a>
+</li>
+</ul>
+</div></div></div></div></div><div class="p-items_wrapper p-items_wrapper-white"><div class="p-items_container"><div class="p-items_leftDummy"></div><div class="p-items_main"><div class="p-items_aside px-5 p-2@s"><div id="logly-lift-4279493" visibility="visible"><div id="logly-lift-widget">  <div id="logly-lift-widget-header">    <span>関連記事</span>    <span class="logly-lift-credit logly-lift-credit2"><a href="https://www.logly.co.jp/privacy.html" target="_top" rel="nofollow">Recommended by <span class="logly-lift-credit-logo" title="logly"></span></a></span>  </div>  <div id="logly-lift-widget-content">    <div class="logly-lift-ad">  <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/9154ebf11af809e7406d3fdc5f7f1b56_" width="18"></span>  <div　class="logly-lift-ad-content">    <a class="logly-lift-ad-link" href="https://qiita.com/kaki_k/items/6e17597804437ef170ae" target="_top" style="text-decoration:none;" data-click-url="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAc8iUAnSOXJ4PiJPqylp58QG1WrKMUz3xBtQbD-YThzKAJKD1qV4ByXDXZtzk3MwqeK2eHLzPhU0fguAmrq4bkIQHptN8ceQyo9eGeGT4LG_Gp-CO9O4Q-r1NyXQ84H78SfRtJL4d6ItgB-ViD7Ag7CKnKF3U9puNIiyMFPEVG6FdRgfz4xxNtCogRXfEp_pqNsk-Mg7kn--2XUKAzdIhtV38JlbbA77uQJ7Br9rd4mnRzgh8ewW55QjlwRvWAuosF3RB-2QUkjrW-8nzVDkbpdwpCIRD4IUl3mVtTtSbo1B4pvOEEm6fGOAtqT122-N0ssz_cgnmSorfcpFXDAQYMhkS1_WYf2WxMQsn4gPKF9KlUsMCOUD71W-0GqrFYi9S8MiQIwoTxWfeG1-uXV9qn7XATNcMksnrgNYxqY_GOeKcAxsqhJeGwyGvWZ7x3PPIU9ZF7_lSHJvFTWtqGCFVbN6DM4QGRx17GOgzVa12KTv8uShQB_abRyCt3ssJCOz3T1cvGYZOrK-A_OgGJpDzB9Q" onmousedown="this.setAttribute(&#39;href&#39;,this.getAttribute(&#39;data-click-url&#39;));">      <span class="logly-lift-ad-title">Python Django入門 (4)</span>    </a>    <span class="logly-lift-ad-author">by kaki_k</span><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/abc" width="1" height="1" style="position: absolute; width: 1px; height: 1px; top: -32767px; left: -32767px;">  </div　class="logly-lift-ad-content"></div></div><div class="logly-lift-ad">  <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/02a8e0f55cc096cb28106ae0365d5422_" width="18"></span>  <div　class="logly-lift-ad-content">    <a class="logly-lift-ad-link" href="https://qiita.com/nnsnodnb/items/f7b1b0b7f2099e403947" target="_top" style="text-decoration:none;" data-click-url="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAc8iUAnSOXJ4NawFLZkyjuQ0yglhidwHJMFxCJue2cpSZZ17pVV8m-JiukdRFZ4GgZKvaOvmVGgWyYYP8y1DiyNnz8OiL0pBVfQ9FhekFdvKFFBWLxrq2pJoWK7veGiuFSaMRarp3QRIPQRPrVpTk23G911BR_SX1Zk7ca10gaDWzl4Cxu4UciJCiQ4dAJGnMq65M83hE2FbEhnIQLshQj-BacV-yau7pq-SszOvZ6CxOovgfIL6G_B6U2qRugLtpsSfCO-ftBKuNf_Fizz2fE-5dnSXmnlxZF54lWbEHGdlJ1HbZ-nGIvpV-nLidXJqfZeK1_1uJWnjiRALbTMpEG49LGwiXZ3YPDX9FajoKNb6FI7bnw84erCqLpIlc5AyZuZDWaKo-ouOQUTvO0zaaHo5Hy5PGLQUi01dgx8BLxnOifsEin1nf8k4nPQA4o4lJuWgW0f5s0Vmiy5gKgNzuEiTaULlfzXUM0skmkI6biNTbl9XoInMoEbQRUlZSGMV5J1Qr-mrIkgQ5NdgQgQER79g" onmousedown="this.setAttribute(&#39;href&#39;,this.getAttribute(&#39;data-click-url&#39;));">      <span class="logly-lift-ad-title">Djangoでファイルアップローダを作る</span>    </a>    <span class="logly-lift-ad-author">by nnsnodnb</span>  </div　class="logly-lift-ad-content"></div></div><div class="logly-lift-ad">  <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/6e833b800fe9f21491b67eb4e2961d32_" width="18"></span>  <div　class="logly-lift-ad-content">    <a class="logly-lift-ad-link" href="https://qiita.com/maisuto/items/d01e2cca63c8e5b2c18c" target="_top" style="text-decoration:none;" data-click-url="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAc8iUAnSOXJ4M5l0baS8nTWz8mF73uC-dAjfCiMvURhIrTG5Y-HXJnezx1QPWzVSvrUH8I8MdopD5DBruLLPnmTIudzeQ6ZLN_S86SqwA8p73uk7W_MKVMpzOyuEmN1SeTYTjnRgP7xS56tpQfSFegOl-4-NFf0m_eEUQEfrdhVRG-6jPsHhQ8x7qZ5NAT5_m8LG8WmC2Zih1eFxgIUwSkJVTEuFFKWDbztgHvM4NAvQDopxIetSdgHp33sEFsR7fG9aMhBS0kcZilTsPgoAk-HfGhJPb3xCgoex7qwaGmd-T8QocpRGnQpUfps3W-uLK4Hzd1hTTm7ZUBwXA_R_GuTF0rCJOIrIPCj8KvZ4dOH4tuwRdV88K0f-BubIKUbJwgTGw5HcLf4d0X5xgDJLP6JLkHHcbdRc4iHm1SJOrNs0wqZW_EyzpM2w5sH7fWhedAvAfm7oyzsK-H39Y5P4FOuS-eSXX-yNlCjDA-BW3tRHuS_Q4cSnKJjwFsMTap4HI9wC5OJLjGOTct94Z5_AbpGA" onmousedown="this.setAttribute(&#39;href&#39;,this.getAttribute(&#39;data-click-url&#39;));">      <span class="logly-lift-ad-title">Python Django チュートリアル(1)</span>    </a>    <span class="logly-lift-ad-author">by maisuto</span>  </div　class="logly-lift-ad-content"></div><div class="logly-lift-ad">  <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/e979f6d16cbcf9a6a690bfbfafa0250c_" width="18"></span>  <div　class="logly-lift-ad-content">    <a class="logly-lift-ad-link" href="https://qiita.com/zaburo/items/0e15f6c150caa13ca34c" target="_top" style="text-decoration:none;" data-click-url="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAc8iUAnSOXJ4Nq1fqh_3VGe6zYTzPaYC6_mjcX_8P2lrEEyIPGn2DsARn0liT_sV8unxez4lvcPmMTwa4TA4WSlKaSVHlPrT6xnbyKUFC6JZpJSUmtv0RvmLDzpqMkbxp3advlRydRVuOdoS6ug3ULTqH4016_nxAhUvKwF8mDAIkvfeZv3i5VxuZ5UoSLWujLe-_sdOpQJZLi6qfOiYyXtjnq2LYByZQ-Jwuir_vszlCCZJU1xeoiBzmVnkHLtaUl1jm2INLja7PwOnY1j0F1lrsAQPZai13N1EoEit5jyT9694oJ4vr7wcUWw45xqTi0GZgBAic-pp6tjyWiKjWAOj7qJz8wSnDdnMgdb4DzbfHsVaZ2EGBkSLK5BlJV09VOrk4GQQnVXhTAi06-bAhCiHWKzMBl9C_w0zvLg0O9hp0uEUNugG9lY1Ly--qAuqe_GvsYojIOLRICcuJtwv8N-jkwQwcoJUhPUlnk8TVX0a4dGtCVBHavQ2BfxP1RVb5_DlY_mYFHk4F5BrAkJStDzA" onmousedown="this.setAttribute(&#39;href&#39;,this.getAttribute(&#39;data-click-url&#39;));">      <span class="logly-lift-ad-title">Djangoでの開発 ダイジェスト</span>    </a>    <span class="logly-lift-ad-author">by zaburo</span>  </div　class="logly-lift-ad-content"></div><div class="logly-lift-ad">    <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/original.jpg" width="18"></span>    <div　class="logly-lift-ad-content">      <a class="logly-lift-ad-link" href="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAcyg9jVAdLZZQCZ3l9Rv3rh90gyy0Xx90WGgOczMX1JbCcNIvNLJlS-sNp8Aw36Qqcta8XMzuUoUNi5-yFfDRQq_8OtuWW437-hMIH0jvdHJA6VVdIqZX32Q2leL4Iky7nOvY_3GgVW2ZhI-b3p5DKfibiY8JUZqOWXEXqmh6Y8YfuOO_ITrOrMwITR0ffmgGskBf1ETek6TbVx07_4yhO6_UCfX5slJfzU_QygS78oqCe75_kE2EsZFNKKDovDsMJzLzjOHyjBPCRqUWD1H9Cu4UoRYpMvdcGuSWFdcTc_EpV24VbreG6HaUUv6bPE8WNHnafsw_F9_A" target="_blank" style="text-decoration:none;" rel="nofollow">        <span class="logly-lift-ad-title">ペルソナでわたしのことわかりますか？</span>      </a><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/bc" width="1" height="1" style="position: absolute; width: 1px; height: 1px; top: -32767px; left: -32767px;">      <span class="logly-lift-ad-adv">PR KARTE</span>    </div　class="logly-lift-ad-content"></div><div class="logly-lift-ad">    <span class="logly-lift-ad-icon"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/normal.png" width="18"></span>    <div　class="logly-lift-ad-content">      <a class="logly-lift-ad-link" href="https://dsp.logly.co.jp/click?ad=G8GmQLsVMLbKpioadOHIrJVNnmn3sWAcKrJj6cX-_ZfrhwgNx8WtYJORH3jXyqDPpub5fXOprd0WIu4xDECcL1JjskIRxUAeZ1bGR86LGTeSN4UJIAYbtPvYQ6q5eqcD9q3CvSeaIIu-0Rc5nDrLgqTUCyNsvBUSbvqisxsLuProo8G3Log10ZGqmg8i6SxhK24TDYwPmjbNDuhvE0t9QXDor4VKS1mckNIxIwAm0sTVwQYyCzlb19aQcAPiPTUnvx1uaqJvbst8c0PmrWF6uYuCAI3EAepfg0oU0Xbmo-0hsZsIGtD5BGBItDede1T85290pTc5ls5Q3xhsG9S_IheIl1tHamJb_MYdMzhgnnV2WdSkqnMTok1q1QE5atuWWd0eYwelHxa1KoeMkV95CYLT__wvFhSORr9azMOyeJWCL_WfRiarP5BsSL_QI7elIy4yMGoT-jtGVHTGgwvb_EZQKjX6ox-8D0j9JsnFKJBixNRsNb70Iq8nwopC9N4j53pCwz0YxkQ" target="_blank" style="text-decoration:none;" rel="nofollow">        <span class="logly-lift-ad-title">フリーランスをGMOが資金面で支援</span>      </a><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/bc(1)" width="1" height="1" style="position: absolute; width: 1px; height: 1px; top: -32767px; left: -32767px;">      <span class="logly-lift-ad-adv">PR GMOクリエイターズネットワーク</span>    </div　class="logly-lift-ad-content"></div>    <div class="logly-lift-clear"></div><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/vbc" width="1" height="1" style="position: absolute; width: 1px; height: 1px; top: -32767px; left: -32767px;"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/vbc(1)" width="1" height="1" style="position: absolute; width: 1px; height: 1px; top: -32767px; left: -32767px;"></div></div><div class="p-items_aside mt-5 px-5 p-2@s"><div class="it-ReferenceList"><div class="it-ReferenceList_title"><span class="fa fa-link"></span>この記事は以下の記事からリンクされています</div><div class="it-Reference is-shown"><img class="it-Reference_authorImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_179446_profile-images_1497925724" alt="ekzemplaro"><a href="https://qiita.com/ekzemplaro/items/8dca4784b582ec23bc09" class="it-Reference_articleTitle">Django で csv のアップロード、ダウンロード</a>からリンク<time class="it-Reference_time">8 months ago</time></div><div class="it-Reference is-shown"><img class="it-Reference_authorImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_217094_profile-images_1517738385" alt="okoppe8"><a href="https://qiita.com/okoppe8/items/e94d4fded29015db1888" class="it-Reference_articleTitle">[Python] 自作のcsvファイル解析モジュールをwebアプリに組み込むためのシンプルなサンプル</a>からリンク<time class="it-Reference_time">8 months ago</time></div><div class="it-Reference is-shown"><img class="it-Reference_authorImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_319484_profile-images_1543413116" alt="MAYR"><a href="https://qiita.com/MAYR/items/c902b03135e1d7261ea5" class="it-Reference_articleTitle">Python GUIで質問です -&gt;解決済</a>の<img class="it-Reference_commenterImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_217094_profile-images_1517738385" alt="okoppe8"><a href="https://qiita.com/MAYR/items/c902b03135e1d7261ea5#comment-5443ed95da1d3c270700" class="it-Reference_comment">コメント</a>からリンク<time class="it-Reference_time">8 months ago</time></div></div></div><div></div><div class="p-items_aside mt-5 px-5 p-2@s" id="comments-wrapper"><div id="comments" class="co-ItemWrapper"><div class="co-ItemWrapper_title"><span class="fa fa-comments mr-1"></span>コメント</div><section class="co-Item" id="comment-6a1a6bd46c2fca19891a"><div class="co-Item_header"><div class="u-flex-align-center"><img class="co-Item_userImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___qiita-image-store.s3.amazonaws.com_0_95915_profile-images_1528964392" alt="yuji_tech"><a href="https://qiita.com/yuji_tech" class="co-Item_username">@yuji_tech</a></div><div class="u-flex-align-center"><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#comment-6a1a6bd46c2fca19891a"><time class="co-Item_time">2018-10-21 18:04</time></a><div class="co-Item_dropdown"><span class="co-Item_subAction"><span class="fa fa-ellipsis-h"></span></span><div class="st-Dropdown right"><div class="st-Dropdown_item">問題のあるコメントを報告する</div></div></div></div></div><div class="co-Item_text"><p>Django初心者なのでとても参考にさせていただいてます！<br>
+細かいですが、<br>
+csvdownload\urls.pyのexportの部分<br>
+views.postExport -&gt; views.PostExportですね</p>
+</div><div class="co-Item_footer"><div class="co-Item_like"><button><span class="fa fa-thumbs-o-up"></span></button><div class="co-Item_likeLabel">0</div></div></div></section><section class="co-Item" id="comment-37bbce0309e1fa42d0b2"><div class="co-Item_header"><div class="u-flex-align-center"><img class="co-Item_userImage" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/https___lh3.googleusercontent.com_-XdUIqdMkCWA_AAAAAAAAAAI_AAAAAAAAAAA_4252rscbv5M_photo.jpg_sz=50" alt="t-iguchi"><a href="https://qiita.com/t-iguchi" class="co-Item_username">@t-iguchi</a></div><div class="u-flex-align-center"><a href="https://qiita.com/t-iguchi/items/d2862e7ef7ec7f1b07e5#comment-37bbce0309e1fa42d0b2"><time class="co-Item_time">2018-10-22 00:51</time></a><div class="co-Item_dropdown"><span class="co-Item_subAction"><span class="fa fa-ellipsis-h"></span></span><div class="st-Dropdown right"><div class="st-Dropdown_item">問題のあるコメントを報告する</div></div></div></div></div><div class="co-Item_text"><p>yujiQiita様</p>
+
+<p>ご指摘ありがとうございます。修正しておきます。<br>
+私もPython自体、まだ学習中ですが、学習コスト低くてとても扱いやすい言語だと思います。</p>
+</div><div class="co-Item_footer"><div class="co-Item_like"><button><span class="fa fa-thumbs-o-up"></span></button><div class="co-Item_likeLabel">0</div></div></div></section><div class="co-AnonymousForm p-3"><div class="co-AnonymousForm_title mb-1">あなたもコメントしてみませんか :)</div><a href="https://qiita.com/signup?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="co-AnonymousForm_signup">ユーザ登録</a><div class="co-AnonymousForm_sub mt-1">すでにアカウントを持っている方は<a href="https://qiita.com/login?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="co-AnonymousForm_login">ログイン</a></div></div></div></div></div><div class="p-items_rightDummy"></div></div></div><div class="st-Modal"><div class="st-Modal_backdrop"></div><div class="st-Modal_body lm-Dialog"><div class="fa fa-times lm-Dialog_close"></div><div class="lm-Dialog_title">ユーザー登録して、Qiitaをもっと便利に使ってみませんか。</div><div class="lm-Dialog_message-pc">この機能を利用するにはログインする必要があります。ログインするとさらに便利にQiitaを利用できます。</div><div class="lm-Dialog_message-mobile">この機能を利用するにはログインする必要があります。ログインするとさらに便利にQiitaを利用できます。</div><ol class="lm-Dialog_list"><li>あなたにマッチした記事をお届けします<div class="description">ユーザーやタグをフォローすることで、あなたが興味を持つ技術分野の情報をまとめてキャッチアップできます</div></li><li>便利な情報をあとで効率的に読み返せます<div class="description">気に入った記事を「ストック」することで、あとからすぐに検索できます</div></li></ol><a href="https://qiita.com/signup?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="lm-Dialog_button lm-Dialog_button-signup">登録する</a><a href="https://qiita.com/login?callback_action=login_or_signup&amp;redirect_to=%2Ft-iguchi%2Fitems%2Fd2862e7ef7ec7f1b07e5&amp;realm=qiita" class="lm-Dialog_button lm-Dialog_button-signin">ログインする</a></div></div><div class="st-Modal"><div class="st-Modal_backdrop"></div><div class="st-Modal_body"><form><div class="st-Form"></div><div class="st-Form"><label><input type="radio" name="reason" value="spam" required="">スパムです</label></div><div class="st-Form"><label><input type="radio" name="reason" value="harassment" required="">攻撃的または迷惑な内容を含んでいます</label></div><div class="st-Form"><label><input type="radio" name="reason" value="inappropriate_content" required="">不適切な内容を含んでいます</label></div><div class="st-Form st-Form-right"><input class="st-Form_submit" type="submit" value="送信"></div></form></div></div></div></div><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/td_qt_access.js.ダウンロード" type="text/javascript"></script><script>microadTd.QT.start({"article_category": "Python3,Django2.0"})</script><script>(function(d,u){var b=d.getElementsByTagName("script")[0],j=d.createElement("script");j.async=true;j.src=u;b.parentNode.insertBefore(j,b);})(document,"//img.ak.impact-ad.jp/ut/ff9a3577423c8ed5_4330.js");</script><noscript><iframe frameborder="0" height="0" src="//nspt.unitag.jp/ff9a3577423c8ed5_4330.php" width="0"></iframe></noscript><footer id="globalFooter" class="st-Footer px-2 px-1@s pt-1 pt-3@s pb-2"><div class="st-Footer_container"><ul class="st-Footer_start"><li class="st-Footer_link"><a class="st-Footer_copyright" href="https://increments.co.jp/">© 2011-2019 Increments Inc.</a></li><li class="st-Footer_link"><a href="https://qiita.com/terms">利用規約</a></li><li class="st-Footer_link"><a target="_blank" href="http://help.qiita.com/ja/articles/qiita-community-guideline">ガイドライン</a></li><li class="st-Footer_link"><a href="https://qiita.com/privacy">プライバシー</a></li><li class="st-Footer_link"><a href="https://help.qiita.com/">ヘルプ</a></li></ul><ul class="st-Footer_end"><li class="st-Footer_link"><a href="https://qiita.com/about">Qiita とは</a></li><li class="st-Footer_link"><a href="https://qiita.com/users">ユーザー</a></li><li class="st-Footer_link"><a href="https://qiita.com/tags">タグ</a></li><li class="st-Footer_link"><a href="https://qiita.com/items">記事</a></li><li class="st-Footer_link"><a href="https://blog.qiita.com/">ブログ</a></li><li class="st-Footer_link"><a href="https://qiita.com/api/v2/docs">API</a></li><li class="st-Footer_link"><a href="https://jobs.qiita.com/?utm_source=qiita&amp;utm_medium=referral&amp;utm_content=footer">Qiita Jobs</a></li><li class="st-Footer_link"><a href="https://teams.qiita.com/">Qiita:Team</a></li><li class="st-Footer_link"><a target="_blank" href="https://zine.qiita.com/?utm_source=qiita&amp;utm_medium=referral&amp;utm_content=footer">Qiita:Zine</a></li><li class="st-Footer_link"><a target="_blank" href="https://qiita.com/ads?utm_source=qiita&amp;utm_medium=referral&amp;utm_content=footer">広告掲載</a></li><li class="st-Footer_link"><a href="https://qiita.com/feedback/new">ご意見</a></li></ul></div></footer></div><script type="text/javascript" charset="UTF-8">!function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var r=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},s=["addRecord","set","trackEvent","trackPageview","trackClicks","ready","fetchGlobalID","fetchUserSegments"],a=0;a<s.length;a++){var c=s[a];e[t].prototype[c]=r(c)}var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.treasuredata.com/sdk/1.9.2/td.min.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(n,i)}}("Treasure",this);</script><script type="text/javascript" charset="UTF-8" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/aid"></script><div class="p-messages"><div data-hyperapp-app="Message" data-hyperapp-props="{&quot;messages&quot;:[]}" data-hyperapp-mounted="true"><div class="msg-Container"></div></div></div><div id="dataContainer" style="display: none;" data-config="{&quot;actionPath&quot;:&quot;public/items#show&quot;,&quot;settings&quot;:{&quot;analyticsTrackingId&quot;:&quot;UA-24675221-12&quot;,&quot;mixpanelToken&quot;:&quot;17d24b448ca579c365d2d1057f3a1791&quot;,&quot;assetsMap&quot;:{},&quot;csrfToken&quot;:&quot;CPlVTdNBoPWlR1JoUWIDV5ZKxBREUxaGBfP7GajJShW0T9xqAj47BWieEiVQ09VBhOkwJUduB1bT2cqN3rcCEw==&quot;,&quot;locale&quot;:&quot;ja&quot;},&quot;currentUser&quot;:null}"></div><div id="itm_4330" style="visibility: hidden; display: none;"></div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" width="1" height="1" border="0" class="bigmining_dmp_beacon" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" width="1" height="1" border="0" class="bigmining_dmp_beacon" style="display: none;"><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct" width="1" height="1" border="0" class="bigmining_dmp_beacon" style="display: none;"><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-58Z82M');</script><iframe height="0" width="0" style="display: none; visibility: hidden;" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/activityi.html"></iframe><iframe height="0" width="0" style="display: none; visibility: hidden;" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/activityi(1).html"></iframe><img src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/rep" style="display: none;"><div style="display: none; visibility: hidden;"><iframe src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/activityi(2).html" width="1" height="1" frameborder="0" style="display:none"></iframe></div><div style="display: none; visibility: hidden;"><iframe src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/activityi(3).html" width="1" height="1" frameborder="0" style="display:none"></iframe></div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nv2kc",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","809797712462041");fbq("track","PageView");</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nxmb9");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","996402550503199");fbq("track","PageView");</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","954575148009345");fbq("track","PageView");</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","437265843064161");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nw0lq",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nw1xy",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nw9n2",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","262978464137256");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","256605841418458");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","386990638325508");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nxlif",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nxlih",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nxyp7",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("ny46g",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1733466696949178");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","ny5vy");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">var _fout_queue=_fout_queue||{};void 0===_fout_queue.segment&&(_fout_queue.segment={});void 0===_fout_queue.segment.queue&&(_fout_queue.segment.queue=[]);_fout_queue.segment.queue.push({user_id:19972,advertiser_id:6796,contractor_id:5});(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"js.fout.jp/segmentation.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+        </div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4740006retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4813012retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4813013retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4813014retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4815034retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4815035retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"4813015retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2040876882868599");fbq("track","PageView");</script>
+<noscript></noscript>
+
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1469129556533591");fbq("track","PageView");</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"5048036retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"5048036retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"5053023retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"5048036retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">window._tfa=window._tfa||[];_tfa.push({notify:"mark",type:"5054022retargeting"});</script>
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/tfa.js.ダウンロード"></script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;"><script type="text/javascript">var _fout_queue=_fout_queue||{};void 0===_fout_queue.segment&&(_fout_queue.segment={});void 0===_fout_queue.segment.queue&&(_fout_queue.segment.queue=[]);_fout_queue.segment.queue.push({user_id:21947,advertiser_id:8063,contractor_id:5});(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"js.fout.jp/segmentation.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+        
+        </div><div style="display: none; visibility: hidden;">
+<script type="text/javascript">!function(){if(window.SmartnewsAds=window.SmartnewsAds||{},!window.SmartnewsAds.p){var a=window.SmartnewsAds.p=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)};window.SmartnewsAds._p||(window.SmartnewsAds._p=a);a.push=a;a.version="1.0.0";a.queue=[];var b=document.createElement("script");b.async=!0;b.src="//cdn.smartnews-ads.com/i/pixel.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}}();SmartnewsAds.p("c2e22923c3676a816c61d14d","PageView");</script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;">
+<script type="text/javascript">!function(){if(window.SmartnewsAds=window.SmartnewsAds||{},!window.SmartnewsAds.p){var a=window.SmartnewsAds.p=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)};window.SmartnewsAds._p||(window.SmartnewsAds._p=a);a.push=a;a.version="1.0.0";a.queue=[];var b=document.createElement("script");b.async=!0;b.src="//cdn.smartnews-ads.com/i/pixel.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}}();SmartnewsAds.p("5f64d149dd4731f0f0190385","PageView");</script>
+<noscript></noscript>
+
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nzdtr");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nziop",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script type="text/javascript">!function(){if(window.SmartnewsAds=window.SmartnewsAds||{},!window.SmartnewsAds.p){var a=window.SmartnewsAds.p=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)};window.SmartnewsAds._p||(window.SmartnewsAds._p=a);a.push=a;a.version="1.0.0";a.queue=[];var b=document.createElement("script");b.async=!0;b.src="//cdn.smartnews-ads.com/i/pixel.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}}();SmartnewsAds.p("4fc5ab48b835653a76f95b96","PageView");</script>
+<noscript></noscript></div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nznn0",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("nznn2",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nzu0q");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;"><script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","nve3t");twq("track","PageView");</script></div><div style="display: none; visibility: hidden;"><script type="text/javascript" language="javascript">var yahoo_retargeting_id="USSDKFK3A8",yahoo_retargeting_label="",yahoo_retargeting_page_type="",yahoo_retargeting_items=[{item_id:"",category_id:"",price:"",quantity:""}];</script>
+<script type="text/javascript" language="javascript" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/s_retargeting.js.ダウンロード"></script></div><div style="display: none; visibility: hidden;">
+<script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/oct.js.ダウンロード" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid("o03ez",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript></noscript>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","o058w");twq("track","PageView");</script>
+</div><div style="display: none; visibility: hidden;">
+<script>!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","o0jpn");twq("track","PageView");</script>
+</div><iframe id="google_osd_static_frame_502012226664" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/saved_resource(1).html"></iframe><iframe src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/beacon.html" style="display: none;"></iframe><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(1)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(2)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(4)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(5)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(6)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(7)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(8)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(9)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(10)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(11)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(12)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(13)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(14)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(15)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(16)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(17)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(3)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(18)" type="text/javascript"></script><script src="./Python + Django でCSVのダウンロード／アップロード - Qiita_files/adsct(19)" type="text/javascript"></script></body></html>

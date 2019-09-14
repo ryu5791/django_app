@@ -1,26 +1,25 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponse
-from .forms import HelloForm
+# from .forms import HelloForm
+from .forms import MakeGameRslt
 
 import logging
 
 # Create your views here.
 class InputView(TemplateView):
 
-	gameRsltDt = [2,0,0,0,0,0,0]
+	gameRsltDt = [0,0,0,0,0,0,0]
 
 
 	def __init__(self):
-		cn = HelloForm()
-		cn.gameRsltFunc(self.gameRsltDt)
+	
+		gameRslt = MakeGameRslt(self.gameRsltDt)
 		self.params = {
 			'message'	:'test',
-			"form20" : cn
+			"form20" 	: gameRslt.tblGm
 		}
-		logging.debug(cn)
-		logging.debug(HelloForm())
-		logging.debug("init")
+		logging.debug(self.params["form20"])
 
 	def get(self, request):
 		logging.debug("test get:")
@@ -31,37 +30,25 @@ class InputView(TemplateView):
 			logging.debug("field1:" +  request.GET["field1"])
 			logging.debug("field2:" +  request.GET["field2"])
 
-			if request.GET["field1"] == "4" \
-			  and request.GET["field2"] == "1":
-				
-#				logging.debug( self.params["game_dt10"] )
-				if self.gameRsltDt[0] == 2:
-					self.gameRsltDt[0] = 0
-				else:
-					self.gameRsltDt[0] = 2
-				
-				logging.debug(self.gameRsltDt)
-				
-#				self.params["game_dt10"] = self.chg_game_pt(self.params["game_dt10"])
-#				logging.debug( self.params["game_dt10"] )
-
-			cl = HelloForm()
-			cl.gameRsltFunc(self.gameRsltDt)
-			self.params["form20"] = cl
+			row = int(request.GET["field1"]) - 3
+			col = int(request.GET["field2"]) - 1
 			
-#			logging.debug('self.params["form20"]:' + self.params["form20"])
-			logging.debug(self.params["form20"])
-			logging.debug(self)
+			if self.gameRsltDt[col] == (row+1):
+				self.gameRsltDt[col] = 0
+			else :
+				self.gameRsltDt[col] = (row+1)
 
-#			elif request.GET["field1"] == "3" \
-#			  and request.GET["field2"] == "2":
-#
-#				logging.debug( self.params["game_dt11"] )
-#				self.params["game_dt11"] = self.chg_game_pt(self.params["game_dt11"])
-#				logging.debug( self.params["game_dt11"] )
+			gameRslt = MakeGameRslt(self.gameRsltDt)
+			self.params = {
+				'message'	:'test',
+				"form20" 	: gameRslt.tblGm
+			}
+			logging.debug(self.params["form20"])
 
 		except KeyError:
 			logging.debug("except")
+
+		logging.debug(self.gameRsltDt)
 
 		return render(request, 'score_input/main.html', self.params)
 

@@ -26,12 +26,22 @@
     <tr>
     <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_2nd)">3</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td>
     </tr>
-    <tr>
-    <td colspan="6">ゲーム</td><td><input type="submit" class="btn-flat-border" value="〇"></td><td onclick="Click_ServeResult(this)">{{game_dt11}}</td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td>
-    </tr>
-    <tr>
-    <td colspan="6">ゲーム</td><td onclick="Click_ServeResult(this)">{{game_dt10}}</td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td onclick="Click_GameResult(this)"></td><td rowspan="3"></td>
-    </tr>
+	    <tr>
+	    <td colspan="6">ゲーム {{cnt}}</td>
+	    	{% for gamecnt in form20 %}
+	    		<td onclick="Click_ServeResult(this)">
+	    		{{gamecnt.0}}
+	    		</td>
+	    	{% endfor %}
+	    </tr>
+	    <tr>
+	    <td colspan="6">ゲーム {{cnt}}</td>
+	    	{% for gamecnt in form20 %}
+	    		<td onclick="Click_ServeResult(this)">
+	    		{{gamecnt.1}}
+	    		</td>
+	    	{% endfor %}
+	    </tr>
     <tr>
     <td colspan="3" onclick="Click_Name(this)"></td><td colspan="2" onclick="Click_ID(this)"></td><td onclick="chg_serve_turn(ROW_MEM_3rd)">2</td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td><td onclick="Click_ServeResult(this)"></td>
     </tr>
@@ -89,7 +99,7 @@ function Click_ServeResult(Obj)
 
 	var send_form = document.createElement("form");
 
-alert("OK");
+//alert("OK");
 //	var token = document.getElementsByName('csrf-token').item(0).content;
 //alert("OK2");
 
