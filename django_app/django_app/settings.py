@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello',
     'sns',
-    'score_input'
+    'score_input',
+    'csvdownload',
 ]
 
 MIDDLEWARE = [
