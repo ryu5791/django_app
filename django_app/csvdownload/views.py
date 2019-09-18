@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from .forms import CSVUploadForm
 from .models import Post
+import logging
 
 class Index(generic.ListView):
     """
@@ -17,6 +18,7 @@ class Index(generic.ListView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['form_name'] = 'csvdownload'
+        logging.debug("ctx:"+str(ctx))
         return ctx
 
 class PostImport(generic.FormView):
