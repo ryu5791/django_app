@@ -18,7 +18,7 @@ class Index(generic.ListView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['form_name'] = 'csvdownload'
-        logging.debug("ctx:"+str(ctx))
+        logging.debug("Index/ctx:"+str(ctx))
         return ctx
 
 class PostImport(generic.FormView):
@@ -32,19 +32,25 @@ class PostImport(generic.FormView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['form_name'] = 'csvdownload'
+        logging.debug("PostImport/get_context_data/ctx:"+str(ctx))
         return ctx
 
     def form_valid(self, form):
         """postされたCSVファイルを読み込み、役職テーブルに登録します"""
         csvfile = io.TextIOWrapper(form.cleaned_data['file'])
+        logging.debug("PostImport/form_valid/csvfile:"+str(csvfile))
+        logging.debug("type:"+str(type(csvfile)))
+        logging.debug("name:"+str(csvfile.name))
+        
+        if( csvfile.name == "member.json" ) :
+        	logging.debug("GET member.json  ")
+        
+        
         reader = csv.reader(csvfile)
-        for row in reader:
-            """
-            役職テーブルを役職コード(primary key)で検索します
-            """
-            post, created = Post.objects.get_or_create(pk=row[0])
-            post.name = row[1]
-            post.save()
+#        for row in reader:
+#            post, created = Post.objects.get_or_create(pk=row[0])
+#            post.name = row[1]
+#            post.save()
         return super().form_valid(form)
 
 def PostExport(request):
