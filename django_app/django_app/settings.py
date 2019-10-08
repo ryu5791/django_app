@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'score_input',
     'csvdownload',
     'csvdl',
+    'app',
 ]
 
 MIDDLEWARE = [

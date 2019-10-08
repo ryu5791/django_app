@@ -17,6 +17,7 @@ import logging
 def index(request):
     # publicのuserを取得
     (public_user, public_group) = get_public()
+    logging.debug("index")
 
     # POST送信時の処理
     if request.method == 'POST':
