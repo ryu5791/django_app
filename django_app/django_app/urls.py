@@ -22,6 +22,7 @@ urlpatterns = [
     path("hello1/", include('hello1.urls')),
     path("sns/", include('sns.urls')),
     path("score_input/", include('score_input.urls')),
+    path("score_input_csrf/", include('score_input.urls')),
     path("csvdownload/", include('csvdownload.urls')),
     path("csvdl/", include('csvdl.urls')),
 ]

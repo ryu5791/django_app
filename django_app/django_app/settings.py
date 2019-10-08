@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'hello',
     'sns',
     'score_input',
+    'score_input_csrf',
     'csvdownload',
     'csvdl',
     'app',
