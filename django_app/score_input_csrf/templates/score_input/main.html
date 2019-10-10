@@ -105,8 +105,8 @@ function Click_ServeResult(Obj)
 
 	send_form.name = "fsend"; //省略可 
 	send_form.action = "/score_input/";
-//	send_form.method = "POST"; //GETも可能
-	send_form.method = "GET"; //GETも可能
+	send_form.method = "POST"; //GETも可能
+//	send_form.method = "GET"; //GETも可能
 	send_form.style.visibility = "hidden"; //画面に表示しない 
 	document.body.appendChild(send_form); //画面内に追加
 
@@ -120,6 +120,9 @@ function Click_ServeResult(Obj)
 	fld2.name = "field2";
 	fld2.type = "text"; //省略可 or hidden
 	fld2.value = col; 
+
+alert(send_form.method);
+
 	send_form.appendChild(fld2);
 
 	

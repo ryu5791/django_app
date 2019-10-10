@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ScoreInputConfig(AppConfig):
-    name = 'score_input'
+    name = 'score_input_csrf'
