@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,14 +6,30 @@
   <title>はじめてのBootstrap4</title>
  
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="{% static 'score/css/bootstrap.css' %}">
  
 </head>
 <body>
  
  
-  <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="{% static 'score/js/jquery-3.4.1.js' %}"></script>
+  <script type="text/javascript" src="{% static 'score/js/bootstrap.bundle.js' %}"></script>
+
+	<ul class="nav nav-tabs nav-fill">
+	  <li class="nav-item">
+	    <a href="#photo1" class="nav-link active" data-toggle="tab">ranking</a>
+	  </li>
+	  <li class="nav-item">
+	    <a href="#photo2" class="nav-link" data-toggle="tab">parsonal</a>
+	  </li>
+	  <li class="nav-item">
+	    <a href="#photo3" class="nav-link" data-toggle="tab">daily</a>
+	  </li>
+	  <li class="nav-item">
+	    <a href="#photo4" class="nav-link" data-toggle="tab">タブ4</a>
+	  </li>
+	</ul>
+
 
 	<h1>ボタンの練習</h1>
 	<a href="#" class="btn btn-success">ボタン</a>
